@@ -13,19 +13,47 @@
  *= require_tree .
  *= require_self
  */
+body{
+ 	transition:all 0.6s;
+ 	font-size: 18px;
+ 	padding-bottom: 1%;
+ 	color: #400627;
+}
+
+ .body_light{
+ 	background-color: darkgray;
+ 	transition:all 0.6s;
+ 	color: white;
+ }
 
 .header{
  	color: white;
  	padding-top:1%;
  	padding-bottom: 1%;
- 	background-color: #400627;	
+ 	background-color: #400627;
  	font-weight: bold;
+ 	transition:all 0.6s;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    background-color: #400627;
+    color: white;
+}
+
+.light-header{
+	color: black;
+	background-color: white;
+	transition:all 0.6s;
 }
 
 .login{
 	font-size: 20px;
 	text-align: center;
-	transition: color 0.6, font 0.6s;
 }
 
 .login:hover{

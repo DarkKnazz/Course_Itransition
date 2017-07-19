@@ -201,6 +201,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
+  i18n
   jbuilder (~> 2.5)
   jquery-rails
   mysql2 (>= 0.3.18, < 0.5)
