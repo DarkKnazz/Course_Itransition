@@ -1,5 +1,26 @@
-<% @users.each do |user| %>
-	<div>
-		<%= link_to user.email, user %>
-	</div>
-<% end %>
+<div style="padding-left: 10%; padding-right:10%">
+  <table class="table table-striped" style="text-align: center">
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: center">Avatar</th>
+      <th style="text-align: center">Username</th>
+      <th style="text-align: center">Posts</th>
+      <th style="text-align: center">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <a href=<%= user %>>
+    	<th scope="row" style="padding-top: 2%; text-align: center"><%= user.id %></th>
+    	<td><img src=<%= user.image %> width="50" height="50" style="border-radius: 50%"></td>
+    	<td style="padding-top: 2%"><%= link_to user.nickname, user %></td>
+    	<td style="padding-top: 2%">0</td>
+    	<td style="padding-top: 2%"><%= user.email %></td>
+      </a>
+      </tr>
+	<% end %>
+  </tbody>
+</table>
+</div>

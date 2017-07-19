@@ -28,9 +28,10 @@
         <div class="col-lg-2 login">
           <div class="dropdown">
             <img src=<%= current_user.image%> width="40" height="40" class="avatar_Login dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => "dropdown-item" %>
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => "dropdown-item" %>
+            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton" style="color:#400627">
+            <div class = "dropdown-item" style="color:#400627; border-bottom: 2px solid #400627;"><%= current_user.nickname %></div>
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => "dropdown-item", :style =>"color:#400627;"%>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => "dropdown-item", :style =>"color:#400627;"%>
             </div>
         </div>
         </div>
@@ -78,15 +79,15 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-1">
-          <%= image_tag "russian.png", :style => "max-width: 90%; height: 35;border-radius: 5px;border: 1px solid black"%>
+          <%= image_tag "russian.png", :style => "max-width: 80%; height: 35px;border-radius: 5px;border: 1px solid black"%>
         </div>
         <div class="col-lg-1">
-          <%= image_tag "english.png", :style => "max-width: 90%; height: 40px;border-radius: 5px;border: 1px solid black"%>
+          <%= image_tag "english.png", :style => "max-width: 80%; height: 35px;border-radius: 5px;border: 1px solid black"%>
         </div>
         <div class="col-lg-2" style="text-align: center">
           <div class="btn-group btn-toggle" onclick = "f1()"> 
-            <button class="btn btn-secondary">L</button>
-            <button class="btn btn-outline-success active">D</button>
+            <button class="btn btn-md btn-secondary">L</button>
+            <button class="btn btn-md btn-outline-success active">D</button>
           </div>
         </div>
         <div class="col-lg-8"></div>
