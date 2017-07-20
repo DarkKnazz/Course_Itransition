@@ -89,3 +89,34 @@ body{
 .dropdown-menu{
 	margin-top: 6%;
 }
+
+.link_Header{
+	color: white;
+	text-decoration:none;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.a > a:hover{
+	color: lightgray;
+	font-size: 22px;
+	text-decoration: none;
+}
+
+.a > a:active{
+	color: lightgray;
+	font-size: 22px;
+	text-decoration: none;
+}
+
+.a > a:link{
+	color: white;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+.a > a:visited{
+	color: white;
+	font-size: 20px;
+	text-decoration: none;
+}

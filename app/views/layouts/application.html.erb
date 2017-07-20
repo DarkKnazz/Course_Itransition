@@ -15,7 +15,7 @@
     <div class="container-fluid header">
       <div class="row">
         <div class="col-lg-3" style="text-align: center"><h3>Lifehacker</h3></div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search for...">
             <span class="input-group-btn">
@@ -23,7 +23,12 @@
             </span>
           </div>
         </div>
-        <div class="col-lg-3"></div>
+        <div class="col-lg-1 a">
+          <%= link_to 'Users', users_path, :class => "link_Header"%>
+        </div>
+        <div class="col-lg-3 a">
+          <%= link_to 'Instructions', root_path, :class => "link_Header"%>
+        </div>
         <% if user_signed_in? %>
         <div class="col-lg-2 login">
           <div class="dropdown">
