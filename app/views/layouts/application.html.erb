@@ -30,7 +30,7 @@
             <img src=<%= current_user.image%> width="40" height="40" class="avatar_Login dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton" style="color:#400627">
             <div class = "dropdown-item" style="color:#400627; border-bottom: 2px solid #400627;"><%= current_user.nickname %></div>
-            <%= link_to 'Edit profile', users_update_path, :class => "dropdown-item", :style =>"color:#400627;"%>
+            <%= link_to 'Edit profile', current_user, :class => "dropdown-item", :style =>"color:#400627;"%>
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => "dropdown-item", :style =>"color:#400627;"%>
             </div>
         </div>
