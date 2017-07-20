@@ -1,3 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-end
+  rescue_from ActionView::MissingTemplate, :with => :template_not_found
+
+  private
+
+  def template_not_found
+    redirect_to root_path
+  end
+ end

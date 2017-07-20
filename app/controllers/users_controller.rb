@@ -13,10 +13,9 @@ class UsersController < ApplicationController
 	end
 
 	def update
-    	if (params[:fullname] != nil)
-    	 current_user.nickname = params[:fullname]
-    	 current_user.save
-    	 redirect_to users_path	
-    	end	
+    	 current_user.nickname = params[:nickname] if params[:nickname]
+    	 current_user.email = params[:email] if params[:email]
+    	 current_user.about = params[:about] if params[:about]
+    	 current_user.save	
 	end
 end

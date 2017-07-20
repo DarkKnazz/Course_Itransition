@@ -1,4 +1,7 @@
 <%= form_tag do %>
-    <%= text_field_tag :fullname, params[:fullname], placeholder: 'fullname' %>
-	<%= submit_tag "save" %>
-<% end %>
+    <%= text_field_tag :nickname, params[:nickname], value: current_user.nickname %>
+    <%= text_field_tag :email, params[:email], value: current_user.email %>
+    <%= text_field_tag :about, params[:about], value: current_user.about %>
+    <%= submit_tag %>
+<% end %> 
+<%= link_to "Back", users_path %>
