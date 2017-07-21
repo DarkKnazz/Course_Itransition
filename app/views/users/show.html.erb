@@ -1,1 +1,34 @@
-<%= @user.email %>
+<div class="container-fluid" style="padding-left: 10%; padding-right: 10%">
+	<div class="row header_Show">
+		Profile name:   <%= @user.nickname %>
+	</div>
+	<div class="row body_Show">
+		<div class="col-lg-4">
+			<img src=<%= @user.image %> class="img-fluid rounded float-right img_Show" width="150">
+		</div>
+		<div class="col-lg-8 content_Show">
+			<div>
+			  <a class="btn btn-social-icon btn-lg ">
+			    <i class="fa fa-envelope"></i>   
+			  </a>  
+			  <%= @user.email %><br>
+			</div>
+			<div>About:  <%= @user.about %><br></div>
+		</div>
+	</div>
+
+	<div style="padding-left: 10%; padding-right:10%">
+  	  <table class="table table-striped" style="text-align: center">
+  	  <thead>
+      <tr>
+        <th style="text-align: center">#</th>
+        <th style="text-align: center">Post Name</th>
+        <th style="text-align: center">Rate</th>
+        <th style="text-align: center">Last Update</th>
+      </tr>
+  	  </thead>
+  	  <tbody>
+  	  </tbody>
+	  </table>
+	</div>
+</div>

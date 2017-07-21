@@ -36,7 +36,7 @@ body{
 }
 
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     padding-top: 0.5%;
@@ -97,6 +97,10 @@ body{
 	cursor: pointer;
 }
 
+tr:hover{
+	cursor:pointer;
+}
+
 .a > a:hover{
 	color: lightgray;
 	font-size: 22px;
@@ -119,4 +123,38 @@ body{
 	color: white;
 	font-size: 20px;
 	text-decoration: none;
+}
+
+.img_Show{
+	border-radius: 50%;
+}
+
+.header_Show{
+	margin-left: 10%;
+	margin-right: 10%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	border-bottom: 1px solid lightgray;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.content_Show{
+	font-size: 20px;
+}
+
+.body_Show{
+	padding-top: 2%;
+	padding-bottom: 2%; 
+}
+
+.header_Edit{
+	padding-top: 2%;
+	padding-bottom: 2%;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.input-group{
+	font-size: 18px;
 }
