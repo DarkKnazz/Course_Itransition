@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
 		 :omniauth_providers => [:facebook, :twitter, :vkontakte, :google_oauth2]
-  
+  has_many :posts
   def self.facebook_from_omniauth(auth)
 	where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
 	  user.provider = auth.provider

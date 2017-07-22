@@ -15,7 +15,7 @@
     	<th scope="row" style="padding-top: 2%; text-align: center"><%= user.id %></th>
     	<td><img src=<%= user.image %> width="50" height="50" style="border-radius: 50%"></td>
     	<td style="padding-top: 2%"><%= user.nickname %></td>
-    	<td style="padding-top: 2%">0</td>
+    	<td style="padding-top: 2%"><%= user.count_Posts %></td>
     	<td style="padding-top: 2%"><%= user.email %></td>
       </tr>
 	<% end %>

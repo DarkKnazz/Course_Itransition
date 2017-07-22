@@ -23,11 +23,19 @@
       <tr>
         <th style="text-align: center">#</th>
         <th style="text-align: center">Post Name</th>
-        <th style="text-align: center">Rate</th>
         <th style="text-align: center">Last Update</th>
+        <th style="text-align: center">Rate</th>
       </tr>
   	  </thead>
   	  <tbody>
+  	    <% @user.posts.each do |post| %>
+      	  <tr onclick="window.location.href='<%= post_path(post.id) %>'">
+            <th scope="row" style="text-align: center"><%= post.id %></th>
+    	    <td><%= post.name %></td>
+    		<td><%= post.updated_at %></td>
+    		<td><%= post.rate %></td>
+          </tr>
+	    <% end %>
   	  </tbody>
 	  </table>
 	</div>

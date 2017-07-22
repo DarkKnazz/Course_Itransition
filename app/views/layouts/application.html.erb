@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="http://www.atlasestateagents.co.uk/css/tether.min.css">
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'posts', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>
   </head>
@@ -27,7 +28,7 @@
           <%= link_to 'Users', users_path, :class => "link_Header"%>
         </div>
         <div class="col-lg-3 a">
-          <%= link_to 'Instructions', root_path, :class => "link_Header"%>
+          <%= link_to 'Instructions', posts_path, :class => "link_Header"%>
         </div>
         <% if user_signed_in? %>
         <div class="col-lg-2 login">
@@ -35,6 +36,7 @@
             <img src=<%= current_user.image%> width="40" height="40" class="avatar_Login dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton" style="color:#400627">
             <div class = "dropdown-item" style="color:#400627; border-bottom: 2px solid #400627;"><%= current_user.nickname %></div>
+            <%= link_to 'Create instruction', new_post_path, :class => "dropdown-item", :style =>"color:#400627;"%>
             <%= link_to 'Edit profile', current_user, :class => "dropdown-item", :style =>"color:#400627;"%>
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => "dropdown-item", :style =>"color:#400627;"%>
             </div>

@@ -1,0 +1,22 @@
+<div style="padding-left: 10%; padding-right:10%">
+  <table class="table table-striped" style="text-align: center">
+  <thead>
+    <tr>
+      <th style="text-align: center">#</th>
+      <th style="text-align: center">Instruction</th>
+      <th style="text-align: center">Updated</th>
+      <th style="text-align: center">Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr onclick="window.location.href='<%= post_path(post.id) %>'">
+        <th scope="row" style="text-align: center"><%= post.id %></th>
+        <td><%= post.name %></td>
+        <td><%= post.updated_at %></td>
+        <td><%= post.rate %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>

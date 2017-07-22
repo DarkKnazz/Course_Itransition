@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
 	def show
 		if(current_user != nil)
+		  @posts = @user.posts
 		  if (@user.id == current_user.id) || (current_user.isAdmin)
 		  	redirect_to edit_user_path
 		  end
