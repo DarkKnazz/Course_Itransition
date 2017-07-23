@@ -11,6 +11,11 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    if(current_user != nil)
+      if (@post.user_id == current_user.id) || (current_user.isAdmin)
+        redirect_to edit_post_path
+      end
+    end
   end
 
   # GET /posts/new
@@ -20,6 +25,11 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    if @post.user_id != current_user.id && current_user.isAdmin == false
+      redirect_to root_path
+    end
+    @step = Step.new
+    @steps = @post.steps
   end
 
   # POST /posts
