@@ -1,43 +1,53 @@
-<h1>Editing Post</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 edit_Post_Column">
+      <div style="text-align:center;">Edit post</div>
+      <%= form_for(@post) do |f| %>
+        <div class="input-group" style="width: 90%">
+          <span class="input-group-addon">Name</span>
+          <%= f.text_field :name, :class => "form-control" %>
+        </div>
+        <button type="submit" class="btn btn-facebook edit_Post_Margin">Update Post</button>
+      <% end %>
 
-<%= form_for(@post) do |f| %>
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
+      <div style="text-align:center;">Create new step</div>
+      <%= form_for(@step) do |f| %>
+        <div class="field" style = "display:none">
+          <%= f.label :post_id %>
+          <%= f.number_field :post_id, :value => @post.id %>
+        </div>
+        <div class="input-group" style="width: 90%">
+          <span class="input-group-addon">Content</span>
+          <%= f.text_field :content, :class => "form-control" %>
+        </div>
+        <button type="submit" class="btn btn-success" style="width: 90%;margin-top:3%;">Create new step</button>
+      <% end %>
+      <div style="font-weight:normal">
+        <%= link_to 'Show', @post %> |
+        <%= link_to 'Back', posts_path %>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div style="padding-left: 5%; padding-right:5%">
+        <table class="table table-striped" style="text-align: center">
+        <thead>
+          <tr>
+            <th style="text-align: center">#</th>
+            <th style="text-align: center">Step Name</th>
+            <th style="text-align: center">Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @steps.each do |step| %>
+            <tr onclick="window.location.href='<%= edit_step_path(step.id) %>'" style="text-align: center">
+              <th scope="row"><%= step.id %></th>
+              <td><%= step.content %></td>
+              <td><%= step.updated_at %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :rate %>
-    <%= f.number_field :rate %>
-  </div>
-
-  <button type="submit" class="btn btn-success">Update Post</button>
-<% end %>
-
-<% @steps.each do |step| %>
-
-<div onclick="window.location.href='<%= edit_step_path(step.id) %>'"><%= step.content %></div>
-<% end %>
-
-<%= form_for(@step) do |f| %>
-  <div class="field" style = "display:none">
-    <%= f.label :post_id %>
-    <%= f.number_field :post_id, :value => @post.id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_field :content %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+</div>
