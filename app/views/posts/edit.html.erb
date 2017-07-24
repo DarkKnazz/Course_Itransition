@@ -1,10 +1,27 @@
 <h1>Editing Post</h1>
 
-<%= render 'form', post: @post %>
+<%= form_for(@post) do |f| %>
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.number_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :rate %>
+    <%= f.number_field :rate %>
+  </div>
+
+  <button type="submit" class="btn btn-success">Update Post</button>
+<% end %>
 
 <% @steps.each do |step| %>
 
-<div><%= step.content %></div>
+<div onclick="window.location.href='<%= edit_step_path(step.id) %>'"><%= step.content %></div>
 <% end %>
 
 <%= form_for(@step) do |f| %>
