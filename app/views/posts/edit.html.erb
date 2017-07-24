@@ -17,8 +17,8 @@
           <%= f.number_field :post_id, :value => @post.id %>
         </div>
         <div class="input-group" style="width: 90%">
-          <span class="input-group-addon">Content</span>
-          <%= f.text_field :content, :class => "form-control" %>
+          <span class="input-group-addon">Step Name</span>
+          <%= f.text_field :name, :class => "form-control" %>
         </div>
         <button type="submit" class="btn btn-success" style="width: 90%;margin-top:3%;">Create new step</button>
       <% end %>
@@ -41,7 +41,7 @@
           <% @steps.each do |step| %>
             <tr onclick="window.location.href='<%= edit_step_path(step.id) %>'" style="text-align: center">
               <th scope="row"><%= step.id %></th>
-              <td><%= step.content %></td>
+              <td><%= step.name %></td>
               <td><%= step.updated_at %></td>
             </tr>
         <% end %>
