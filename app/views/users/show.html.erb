@@ -9,8 +9,8 @@
 		<div class="col-lg-8 content_Show">
 			<div>
 			  <a class="btn btn-social-icon btn-lg ">
-			    <i class="fa fa-envelope"></i>   
-			  </a>  
+			    <i class="fa fa-envelope"></i>
+			  </a>
 			  <%= @user.email %><br>
 			</div>
 			<div>About:  <%= @user.about %><br></div>
@@ -28,9 +28,9 @@
       </tr>
   	  </thead>
   	  <tbody>
-  	    <% @user.posts.each do |post| %>
+  	    <% @user.posts.each_with_index do |post, index| %>
       	  <tr onclick="window.location.href='<%= post_path(post.id) %>'">
-            <th scope="row" style="text-align: center"><%= post.id %></th>
+            <th scope="row" style="text-align: center"><%= index + 1 %></th>
     	    <td><%= post.name %></td>
     		<td><%= post.updated_at %></td>
     		<td><%= post.rate %></td>

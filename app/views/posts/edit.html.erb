@@ -38,9 +38,9 @@
           </tr>
         </thead>
         <tbody>
-          <% @steps.each do |step| %>
+          <% @steps.each_with_index do |step, index| %>
             <tr onclick="window.location.href='<%= edit_step_path(step.id) %>'" style="text-align: center">
-              <th scope="row"><%= step.id %></th>
+              <th scope="row"><%= index + 1 %></th>
               <td><%= step.name %></td>
               <td><%= step.updated_at %></td>
             </tr>

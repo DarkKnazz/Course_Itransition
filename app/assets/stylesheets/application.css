@@ -145,7 +145,7 @@ tr:hover{
 
 .body_Show{
 	padding-top: 2%;
-	padding-bottom: 2%; 
+	padding-bottom: 2%;
 }
 
 .header_Edit{
@@ -157,4 +157,17 @@ tr:hover{
 
 .input-group{
 	font-size: 18px;
+}
+
+#tag_cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
+
+.tags {
+  font-weight: normal;
+  font-size: 18px;
 }
