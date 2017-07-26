@@ -1,6 +1,6 @@
 <div class="container-fluid" style="padding-left: 10%; padding-right: 10%">
 	<div class="row header_Show">
-		Profile name:   <%= @user.nickname %>
+		<%= t('users.show.profile') %>   <%= @user.nickname %>
 	</div>
 	<div class="row body_Show">
 		<div class="col-lg-4">
@@ -13,27 +13,25 @@
 			  </a>
 			  <%= @user.email %><br>
 			</div>
-			<div>About:  <%= @user.about %><br></div>
+			<div><%= t('users.show.about') %><%= @user.about %><br></div>
 		</div>
 	</div>
 
-	<div style="padding-left: 10%; padding-right:10%">
+	<div style="padding-left: 15%; padding-right:15%">
   	  <table class="table table-striped" style="text-align: center">
   	  <thead>
       <tr>
         <th style="text-align: center">#</th>
-        <th style="text-align: center">Post Name</th>
-        <th style="text-align: center">Last Update</th>
-        <th style="text-align: center">Rate</th>
+        <th style="text-align: center"><%= t('posts.table.name') %></th>
+        <th style="text-align: center"><%= t('posts.table.update') %></th>
       </tr>
   	  </thead>
   	  <tbody>
   	    <% @user.posts.each_with_index do |post, index| %>
       	  <tr onclick="window.location.href='<%= post_path(post.id) %>'">
             <th scope="row" style="text-align: center"><%= index + 1 %></th>
-    	    <td><%= post.name %></td>
-    		<td><%= post.updated_at %></td>
-    		<td><%= rating_for post, "original_score" %></td>
+    	    	<td><%= post.name %></td>
+    				<td><%= post.updated_at %></td>
           </tr>
 	    <% end %>
   	  </tbody>
