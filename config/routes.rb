@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :users, :only => [:show, :index, :update, :edit, :destroy]
   resources :posts, :only => [:index, :show, :update, :edit, :destroy]
   resources :steps, :only => [:create, :update, :edit, :destroy]
-
   get 'tags/:tag', to: 'posts#index', as: :tag
 
   match '*path' => redirect('/'), via: :get

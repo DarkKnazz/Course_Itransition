@@ -1,1 +1,4 @@
-<%= @step.name.html_safe %>
+<%= form_for @step do |f| %>
+   <%= f.text_field :text %>
+   <%= f.submit "Submit" %>
+<% end %>

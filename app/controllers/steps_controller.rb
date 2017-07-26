@@ -3,7 +3,10 @@ class StepsController < ApplicationController
 
   # GET /steps/1/edit
   def edit
-    @step = Step.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+  end
   end
 
   # POST /steps
@@ -22,12 +25,12 @@ class StepsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /steps/1
-  # PATCH/PUT /steps/1.json
   def update
+    @step.content += "<div>#{step_params[:text]}</div>"
+    @step.save
     respond_to do |format|
-      if @step.update(step_params)
-        format.html { redirect_to edit_post_path }
+      if @step
+        format.html { redirect_to edit_step_path(@step.id) }
         format.json { render :show, status: :ok, location: @step }
       else
         format.html { render :edit }
@@ -54,6 +57,6 @@ class StepsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def step_params
-      params.require(:step).permit(:post_id, :name)
+      params.require(:step).permit(:post_id, :name, :text)
     end
 end
