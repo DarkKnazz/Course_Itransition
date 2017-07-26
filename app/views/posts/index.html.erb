@@ -1,20 +1,17 @@
-<div style="padding-left: 15%; padding-right:15%">
-  <table class="table table-striped" style="text-align: center">
-  <thead>
-    <tr>
-      <th style="text-align: center">#</th>
-      <th style="text-align: center">Instruction Name</th>
-      <th style="text-align: center">Last Update</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each_with_index do |post, index| %>
-      <tr onclick="window.location.href='<%= post_path(post.id) %>'">
-        <th scope="row" style="text-align: center"><%= index + 1 %></th>
-        <td><%= post.name %></td>
-        <td><%= post.updated_at %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<div style="padding-left: 15%; padding-right:15%; padding-top:1%; padding-bottom:2%">
+    <div class="container-fluid">
+      <div class="row" style="display:flex;justify-content: flex-start;">
+        <% @posts.each do |post| %>
+          <div class="col-lg-4">
+              <div class="card" style="height: 200px;display:block;margin-bottom: 130px" onclick="window.location.href='<%= post_path(post.id) %>'">
+                <img class="card-img-top" src="http://mirgif.com/KARTINKI/kosmos/kosmos-42.jpg" alt="Card image cap" style="height:100%;width:100%">
+                <div class="card-block" style="border:1px solid lightgray;">
+                  <h4 class="card-title"><%= post.name %></h4>
+                  <p class="card-text"><%= post.updated_at %></p>
+                </div>
+              </div>
+          </div>
+      <% end %>
+      </div>
+    </div>
 </div>

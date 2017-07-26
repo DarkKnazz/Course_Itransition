@@ -32,6 +32,10 @@ class StepsController < ApplicationController
     if step_params[:image] != ""
       @step.content += "<img src='#{step_params[:image]}' width='100' height='100'>"
     end
+    if step_params[:video] != ""
+      temp = get_Link_From_Video
+      @step.content += "<iframe width='560' height='315' src='https://www.youtube.com/embed/#{temp}' frameborder='0' allowfullscreen></iframe>"
+    end
     @step.save
     respond_to do |format|
       if @step
@@ -62,12 +66,16 @@ class StepsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def get_Link_From_Video
+      link = step_params[:video].split("v=")[1]
+    end
+
     def set_step
       @step = Step.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def step_params
-      params.require(:step).permit(:post_id, :name, :text, :image)
+      params.require(:step).permit(:post_id, :name, :text, :image, :video)
     end
 end
