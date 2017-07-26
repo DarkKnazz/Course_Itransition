@@ -2,6 +2,10 @@
   <div class="row header_Posts_Show">
     <%= @post.name %>
   </div>
+  <% if current_user %>
+    <%= rating_for @post, "original_score" %>
+  <% end %>
+
   <% @post.tag_list.each do |tag| %>
     <%= link_to tag, tag_path(tag), :class => "badge badge-pill badge-danger tags" %>
   <% end %>

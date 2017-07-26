@@ -1,4 +1,8 @@
+<%= @step.content.html_safe %>
 <%= form_for @step do |f| %>
    <%= f.text_field :text %>
+   <%= f.text_field :image %>
    <%= f.submit "Submit" %>
 <% end %>
+
+<%= link_to "clear data", clear_path(@step), :method =>"post" %>

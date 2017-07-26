@@ -1,5 +1,5 @@
 class StepsController < ApplicationController
-  before_action :set_step, only: [:show, :edit, :update, :destroy]
+  before_action :set_step, only: [:show, :edit, :update, :destroy, :clear]
 
   # GET /steps/1/edit
   def edit
@@ -26,7 +26,12 @@ class StepsController < ApplicationController
   end
 
   def update
-    @step.content += "<div>#{step_params[:text]}</div>"
+    if step_params[:text] != ""
+      @step.content += "<div>#{step_params[:text]}</div>"
+    end
+    if step_params[:image] != ""
+      @step.content += "<img src='#{step_params[:image]}' width='100' height='100'>"
+    end
     @step.save
     respond_to do |format|
       if @step
@@ -49,6 +54,12 @@ class StepsController < ApplicationController
     end
   end
 
+  def clear
+    @step.content = ""
+    @step.save
+    redirect_to edit_step_path(@step.id)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_step
@@ -57,6 +68,6 @@ class StepsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def step_params
-      params.require(:step).permit(:post_id, :name, :text)
+      params.require(:step).permit(:post_id, :name, :text, :image)
     end
 end

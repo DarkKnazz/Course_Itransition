@@ -3,8 +3,6 @@ class CreatePosts < ActiveRecord::Migration[5.0]
     create_table :posts do |t|
       t.integer :user_id
       t.string :name
-      t.integer :rate, default: 0
-
       t.timestamps
     end
   end
