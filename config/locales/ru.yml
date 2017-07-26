@@ -1,3 +1,30 @@
 ru:
   header:
-    login: "Войти"
+    form:
+      placeholder: "Искать..."
+    links:
+      login: "Войти"
+      users: "Юзеры"
+      posts: "Инструкции"
+    profile:
+      create: "Создать инструкцию"
+      edit: "Редактировать"
+      logout: "Выйти"
+    modal:
+      login: "Войти с помощью:"
+      button: "Закрыть"
+  footer:
+    buttons:
+      language: "Смена языка"
+      english: "Английский"
+      russian: "Русский"
+  users:
+    form:
+    edit:
+    index:
+      header:
+        avatar: "Аватар"
+        username: "Никнейм"
+        posts: "Инструкции"
+        email: "Почта"
+    show:

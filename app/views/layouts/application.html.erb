@@ -18,17 +18,17 @@
         <div class="col-lg-3" style="text-align: center"><h3>Lifehacker</h3></div>
         <div class="col-lg-3">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+            <input type="text" class="form-control" placeholder=<%= t('header.form.placeholder') %>>
             <span class="input-group-btn">
               <button class="btn btn-secondary" type="button">Go!</button>
             </span>
           </div>
         </div>
         <div class="col-lg-1 a">
-          <%= link_to 'Users', users_path, :class => "link_Header"%>
+          <%= link_to t('header.links.users'), users_path, :class => "link_Header"%>
         </div>
         <div class="col-lg-3 a">
-          <%= link_to 'Instructions', posts_path, :class => "link_Header"%>
+          <%= link_to t('header.links.posts'), posts_path, :class => "link_Header"%>
         </div>
         <% if user_signed_in? %>
         <div class="col-lg-2 login">
@@ -36,26 +36,26 @@
             <img src=<%= current_user.image%> width="40" height="40" class="avatar_Login dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton" style="color:#400627">
             <div class = "dropdown-item" style="color:#400627; border-bottom: 2px solid #400627;"><%= current_user.nickname %></div>
-            <%= link_to 'Create instruction', new_post_path, :class => "dropdown-item", :style =>"color:#400627;"%>
-            <%= link_to 'Edit profile', current_user, :class => "dropdown-item", :style =>"color:#400627;"%>
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => "dropdown-item", :style =>"color:#400627;"%>
+            <%= link_to t('header.profile.create'), new_post_path, :class => "dropdown-item", :style =>"color:#400627;"%>
+            <%= link_to t('header.profile.edit'), current_user, :class => "dropdown-item", :style =>"color:#400627;"%>
+            <%= link_to t('header.profile.logout'), destroy_user_session_path, method: :delete, :class => "dropdown-item", :style =>"color:#400627;"%>
             </div>
         </div>
         </div>
         <% else %>
         <div class="col-lg-2 login">
-          <div data-toggle="modal" data-target=".bd-example-modal-sm"><%=t :login %></div>
+          <div data-toggle="modal" data-target=".bd-example-modal-sm"><%=t ('header.links.login') %></div>
         </div>
-        <% end %> 
+        <% end %>
       </div>
     </div>
 
   <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
-  
+
       <div class="modal-content" style="text-align: left; padding: 1%;">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Log in with:</h5>
+            <h5 class="modal-title" id="exampleModalLabel"><%= t('header.modal.login') %></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -66,16 +66,16 @@
             </a>
             <a class="btn btn-social-icon btn-lg btn-vk" href="/users/auth/vkontakte">
             <i class="fa fa-vk"></i>
-            </a>  
+            </a>
             <a class="btn btn-social-icon btn-lg btn-twitter" href="/users/auth/twitter">
             <i class="fa fa-twitter"></i>
-            </a> 
+            </a>
             <a class="btn btn-social-icon btn-lg btn-google" href="/users/auth/google_oauth2">
             <i class="fa fa-google"></i>
-            </a> 
+            </a>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('header.modal.button') %></button>
           </div>
       </div>
     </div>
@@ -85,14 +85,19 @@
   <footer class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-lg-1">
-          <%= image_tag "russian.png", :style => "max-width: 80%; height: 35px;border-radius: 5px;border: 1px solid black"%>
-        </div>
-        <div class="col-lg-1">
-          <%= image_tag "english.png", :style => "max-width: 80%; height: 35px;border-radius: 5px;border: 1px solid black"%>
+        <div class="col-lg-2">
+          <div class="dropup">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= t('footer.buttons.language') %>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <div class ="dropdown-item btn btn-secondary"><%= link_to_unless I18n.locale == :en, t('footer.buttons.english'), locale: :en %></div>
+              <div class ="dropdown-item btn btn-secondary"><%= link_to_unless I18n.locale == :ru, t('footer.buttons.russian'), locale: :ru %></div>
+            </div>
+          </div>
         </div>
         <div class="col-lg-2" style="text-align: center">
-          <div class="btn-group btn-toggle" onclick = "f1()"> 
+          <div class="btn-group btn-toggle" onclick = "f1()">
             <button class="btn btn-md btn-secondary">L</button>
             <button class="btn btn-md btn-outline-success active">D</button>
           </div>
