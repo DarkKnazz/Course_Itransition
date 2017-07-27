@@ -15,11 +15,6 @@ end
   # GET /posts/1
   # GET /posts/1.json
   def show
-    if(current_user != nil)
-      if (@post.user_id == current_user.id) || (current_user.isAdmin)
-        redirect_to edit_post_path
-      end
-    end
   end
 
   # GET /posts/new

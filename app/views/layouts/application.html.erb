@@ -34,7 +34,7 @@
             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton" style="color:#400627">
             <div class = "dropdown-item" style="color:#400627; border-bottom: 2px solid #400627;"><%= current_user.nickname %></div>
             <%= link_to t('header.profile.create'), new_post_path, :class => "dropdown-item", :style =>"color:#400627;"%>
-            <%= link_to t('header.profile.edit'), current_user, :class => "dropdown-item", :style =>"color:#400627;"%>
+            <%= link_to t('header.profile.edit'), edit_user_path(current_user.id), :class => "dropdown-item", :style =>"color:#400627;"%>
             <%= link_to t('header.profile.logout'), destroy_user_session_path, method: :delete, :class => "dropdown-item", :style =>"color:#400627;"%>
             </div>
         </div>

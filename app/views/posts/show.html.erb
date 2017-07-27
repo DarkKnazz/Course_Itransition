@@ -6,6 +6,10 @@
     <%= rating_for @post, "original_score" %>
   <% end %>
 
+  <% if (current_user && (@post.user_id == current_user.id || current_user.isAdmin)) %>
+    <%= link_to "Edit post", edit_post_path(@post.id) %>
+  <% end %>
+
   <% @post.tag_list.each do |tag| %>
     <%= link_to tag, tag_path(tag), :class => "badge badge-pill badge-danger tags" %>
   <% end %>
