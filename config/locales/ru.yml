@@ -41,6 +41,29 @@ ru:
       about: "О себе: "
       edit: "Редактировать"
   posts:
+    new:
+      name: "Новая инструкция"
+    form:
+      name: "Имя"
+      preview: "Превью"
+      tags: "Теги"
+      button: "Создать инструкцию"
+    edit:
+      header: "Редактирование инструкции"
+      name: "Название"
+      update: "Обновить"
+      form:
+        create: "Создать новый шаг"
+        step: "Название"
+        button: "Создать новый шаг"
+        links:
+          switch: "Просмотр"
+      table:
+        step: "Название шага"
+        update: "Обновлен в"
+    show:
+      links:
+        edit: "Редактировать"
     table:
       name: "Название"
       update: "Обновлен в"

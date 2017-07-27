@@ -41,6 +41,29 @@ en:
       about: "About: "
       edit: "Edit user"
   posts:
+    new:
+      name: "New Post"
+    form:
+      name: "Name"
+      preview: "Preview"
+      tags: "Tags"
+      button: "Create Post"
+    edit:
+      header: "Edit post"
+      name: "Name"
+      update: "Update Post"
+      form:
+        create: "Create new step"
+        step: "Step name"
+        button: "Create new step"
+        links:
+          switch: "Show"
+      table:
+        step: "Step name"
+        update: "Updated"    
+    show:
+      links:
+        edit: "Edit post"
     table:
       name: "Post Name"
       update: "Last Update"
