@@ -37,6 +37,10 @@ end
     @post = current_user.posts.create(post_params)
     current_user.count_Posts += 1
     current_user.save
+    if @post.preview == ""
+      @post.preview = "http://mirgif.com/KARTINKI/kosmos/kosmos-42.jpg"
+      @post.save
+    end
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post}
@@ -80,6 +84,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:user_id, :name, :rate, :tag_list)
+      params.require(:post).permit(:user_id, :name, :rate, :tag_list, :preview)
     end
 end

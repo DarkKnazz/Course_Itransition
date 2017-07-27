@@ -39,6 +39,7 @@ en:
     show:
       profile: "Profile name: "
       about: "About: "
+      edit: "Edit user"
   posts:
     table:
       name: "Post Name"

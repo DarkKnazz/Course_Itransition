@@ -4,7 +4,7 @@
         <% @posts.each do |post| %>
           <div class="col-lg-4">
               <div class="card" style="height: 200px;display:block;margin-bottom: 130px" onclick="window.location.href='<%= post_path(post.id) %>'">
-                <img class="card-img-top" src="http://mirgif.com/KARTINKI/kosmos/kosmos-42.jpg" alt="Card image cap" style="height:100%;width:100%">
+                <img class="card-img-top" src=<%= post.preview %> alt="Card image cap" style="height:100%;width:100%">
                 <div class="card-block" style="border:1px solid lightgray;">
                   <h4 class="card-title"><%= post.name %></h4>
                   <p class="card-text"><%= post.updated_at %></p>

@@ -39,6 +39,7 @@ ru:
     show:
       profile: "Имя профиля: "
       about: "О себе: "
+      edit: "Редактировать"
   posts:
     table:
       name: "Название"

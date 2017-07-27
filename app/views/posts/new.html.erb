@@ -1,5 +1,29 @@
-<h1>New Post</h1>
+<div class="container-fluid posts_New_Body">
+  <div class="row post_New_Header">New Post</div>
+  <%= form_for(@post) do |f| %><br>
+  <div class="row">
+    <div class="input-group">
+      <span class="input-group-addon">Name</span>
+      <%= f.text_field :name, :class => "form-control" %>
+    </div>
+  </div><br>
 
-<%= render 'form', post: @post %>
+<div class="row">
+  <div class="input-group">
+    <span class="input-group-addon">Preview</span>
+    <%= f.text_field :preview, :class => "form-control" %>
+  </div>
+</div><br>
 
-<%= link_to 'Back', posts_path %>
+<div class="row">
+  <div class="input-group">
+    <span class="input-group-addon">Tags</span>
+    <%= f.text_field :tag_list, :class => "form-control" %>
+  </div>
+</div><br>
+
+<div class="row" style="padding-left: 25%">
+  <button type="submit" class="btn btn-secondary" style="width: 60%">Create Post</button>
+</div><br>
+<% end %>
+</div>

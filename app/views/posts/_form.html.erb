@@ -1,13 +1,26 @@
 <%= form_for(post) do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+  <div class="row">
+    <div class="input-group">
+      <span class="input-group-addon">Name</span>
+      <%= f.text_field :name, :class => "form-control" %>
+    </div>
+  </div><br>
 
-  <div class='field'>
-    <%= f.label :tag_list, 'Tags (separated by commas)' %><br/>
-    <%= f.text_field :tag_list %>
+<div class="row">
+  <div class="input-group">
+    <span class="input-group-addon">Preview</span>
+    <%= f.text_field :preview, :class => "form-control" %>
   </div>
+</div><br>
 
-  <button type="submit" class="btn btn-success">Create Post</button>
+<div class="row">
+  <div class="input-group">
+    <span class="input-group-addon">Tags</span>
+    <%= f.text_field :tag_list, :class => "form-control" %>
+  </div>
+</div><br>
+
+<div class="row" style="padding-left: 25%">
+  <button type="submit" class="btn btn-secondary" style="width: 50%">Create Post</button>
+</div><br>
 <% end %>

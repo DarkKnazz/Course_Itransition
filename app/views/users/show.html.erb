@@ -1,10 +1,13 @@
 <div class="container-fluid" style="padding-left: 10%; padding-right: 10%">
 	<div class="row header_Show">
-		<%= t('users.show.profile') %>   <%= @user.nickname %>
-
-		<% if current_user && (@user.id == current_user.id || current_user.isAdmin) %>
-			<%= link_to "Edit post", edit_user_path(@user.id) %>
-		<% end %>
+		<div class="col-lg-6">
+			<%= t('users.show.profile') %>   <%= @user.nickname %>
+		</div>
+		<div class="col-lg-6 show_Header_Link">
+			<% if current_user && (@user.id == current_user.id || current_user.isAdmin) %>
+				<%= link_to t('users.show.edit'), edit_user_path(@user.id), :class => "btn btn-secondary" %>
+			<% end %>
+		</div>
 	</div>
 	<div class="row body_Show">
 		<div class="col-lg-4">
