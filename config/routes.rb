@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :posts, :only => [:index, :show, :update, :edit, :destroy]
   resources :steps, :only => [:create, :update, :edit, :destroy, :clear]
   get 'tags/:tag', to: 'posts#index', as: :tag
-  post 'clear/:id', to: 'steps#clear', as: 'clear'
+  post 'clear', to: 'steps#clear', as: 'clear' 
   match '*path' => redirect('/'), via: :get
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

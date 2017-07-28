@@ -39,3 +39,22 @@
 	padding-bottom: 1%;
 	border-bottom: 1px solid lightgray;
 }
+
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+
+tbody.example tr.placeholder {
+  position: relative;
+  /** More li styles **/
+}
+tbody.example tr.placeholder:before {
+  position: absolute;
+  /** Define arrowhead **/
+}

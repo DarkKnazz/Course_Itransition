@@ -1,6 +1,7 @@
 class StepsController < ApplicationController
-  before_action :set_step, only: [:show, :edit, :update, :destroy, :clear]
-
+  before_action :set_step, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+  respond_to :js, :json, :html
   # GET /steps/1/edit
   def edit
     respond_to do |format|
@@ -26,16 +27,7 @@ class StepsController < ApplicationController
   end
 
   def update
-    if step_params[:text] != ""
-      @step.content += "<div>#{step_params[:text]}</div>"
-    end
-    if step_params[:image] != ""
-      @step.content += "<img src='#{step_params[:image]}' width='100' height='100'>"
-    end
-    if step_params[:video] != ""
-      temp = get_Link_From_Video
-      @step.content += "<iframe width='560' height='315' src='https://www.youtube.com/embed/#{temp}' frameborder='0' allowfullscreen></iframe>"
-    end
+    @step.content = params[:data_value]
     @step.save
     respond_to do |format|
       if @step
@@ -59,9 +51,18 @@ class StepsController < ApplicationController
   end
 
   def clear
-    @step.content = ""
+    @step = Step.find(4)
+    @step.content = params[:data_value].split("\"")[1]
     @step.save
-    redirect_to edit_step_path(@step.id)
+    respond_to do |format|
+      if @step
+        format.html { redirect_to edit_step_path(@step.id) }
+        format.json { render :show, status: :ok, location: @step }
+      else
+        format.html { render :edit }
+        format.json { render json: @step.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
