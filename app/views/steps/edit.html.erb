@@ -1,12 +1,38 @@
-<%= @step.content.html_safe %>
-<%= form_for @step do |f| %>
-   <%= f.text_field :text %>
-   <%= f.text_field :image %>
-   <%= f.text_field :video %>
-   <%= f.submit "Submit" %>
-<% end %>
-
-<input type="text" id="form1">
-<button onclick="ajax_Request()">sdfgdf</button>
-
-<%= link_to "clear data", clear_path(@step), :method =>"post" %>
+<div class="container-fluid">
+  <div class="row step_Edit_Header">
+    <div class="col-lg-2" style="font-size: 20px">Add a new:</div>
+    <div class="col-lg-4">
+      <a class="btn btn-social-icon btn-success btn-md" onclick="create_New_Text()">
+        <i class="fa fa-file-text" style="color: white"></i>
+      </a>
+      <a class="btn btn-social-icon btn-success btn-md" onclick="create_New_Image()">
+        <i class="fa fa-picture-o" style="color: white"></i>
+      </a>
+      <a class="btn btn-social-icon btn-success btn-md" onclick="create_New_Video()">
+        <i class="fa fa-video-camera" style="color: white"></i>
+      </a>
+    </div>
+    <div class="col-lg-6" style="text-align:right">
+      <button class="btn btn-success" onclick="ajax_Request()">Save changes</button>
+    </div>
+  </div>
+</div>
+<ol id="main_Block" class="drag_List">
+  <li>
+    <div class="row block image">
+      <div class="block_Text_Field">Image</div>
+      <div class="dropzone" id="temp_3">
+        <div>Drop your image here</div>
+        <input type="file" accept="image/png,image/jpeg, application/pdf" />
+      </div>
+      <button class="btn btn-danger">Destroy</button>
+    </div>
+  </li>
+  <li>
+    <div class="row block video">
+      <div class="block_Text_Field">Video</div>
+      <input type="text" placeholder="Your link" class="form-control block_Text_Area">
+      <button class="btn btn-danger">Destroy</button>
+    </div>
+  </li>
+</ol>

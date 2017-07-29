@@ -16,7 +16,7 @@
 body{
  	transition:all 0.6s;
  	font-size: 18px;
- 	padding-bottom: 1%;
+ 	padding-bottom: 5%;
  	color: #400627;
 }
 
@@ -41,6 +41,7 @@ body{
     width: 100%;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
+    margin-top: 1%;
     background-color: #400627;
     color: white;
 }
