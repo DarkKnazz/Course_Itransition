@@ -21,8 +21,7 @@
 	border-radius: 5px;
 }
 
-.edit_Post_Margin{
-	margin-bottom: 20%;
+.edit_Post_Button{
 	width: 90%;
 	margin-top:3%;
 }
@@ -57,4 +56,29 @@ tbody.example tr.placeholder {
 tbody.example tr.placeholder:before {
   position: absolute;
   /** Define arrowhead **/
+}
+
+.show_Text{
+	width: 100%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	word-wrap:break-word;
+	font-size: 20px;
+}
+
+.show_Video{
+	height: 300px;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.show_Image{
+	height: 300px;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.show_Inner_Image{
+	max-width: 100%;
+	max-height: 100%;
 }

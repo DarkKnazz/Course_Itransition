@@ -13,11 +13,12 @@ class StepsController < ApplicationController
   # POST /steps
   # POST /steps.json
   def create
+    @post = Post.find(params[:post_id])
+    @step = Step.new(:post=>@post)
     @step = Step.create(step_params)
-    @post = Post.find(step_params[:post_id])
     respond_to do |format|
       if @step.save
-        format.html { redirect_to @post, notice: 'Step was successfully created.' }
+        format.html { redirect_to edit_post_path(@post.id), notice: 'Step was successfully created.' }
         format.json { render :show, status: :created, location: @step }
       else
         format.html { render :new }
@@ -31,7 +32,7 @@ class StepsController < ApplicationController
     @step.save
     respond_to do |format|
       if @step
-        format.html { redirect_to edit_step_path(@step.id) }
+        format.html { redirect_to edit_post_step_path(@step.id) }
         format.json { render :show, status: :ok, location: @step }
       else
         format.html { render :edit }
@@ -45,7 +46,7 @@ class StepsController < ApplicationController
   def destroy
     @step.destroy
     respond_to do |format|
-      format.html { redirect_to steps_url, notice: 'Step was successfully destroyed.' }
+      format.html { redirect_to edit_post_path(@step.post.id) }
       format.json { head :no_content }
     end
   end
@@ -63,6 +64,10 @@ class StepsController < ApplicationController
         format.json { render json: @step.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def upload_Image
+    
   end
 
   private

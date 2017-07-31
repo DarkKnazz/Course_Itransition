@@ -2,6 +2,7 @@ var global_Counter=  1;
 var func_Fuck = function(id){
   var temp_img = id + " img";
   var temp_div = id + " div";
+  console.log(id);
   $(id).on('dragover', function() {
     $(this).addClass('hover');
   });
@@ -39,16 +40,9 @@ var func_Fuck = function(id){
     }
   });
 }
-$(function() {
-  var temp = document.getElementsByClassName("dropzone");
-  console.log(temp);
-  for(var i = 0; i < temp.length; i++){
-    func_Fuck("#" + temp[i].id)
-  }
-});
 
 $(function  () {
-  $("ol.drag_List").sortable();
+  $("ol.drag_List").sortable({ containment: "parent" });
 });
 
 var create_New_Text = function(){
@@ -70,12 +64,50 @@ var create_New_Text = function(){
 }
 
 var create_New_Image = function(){
-  console.log(global_Counter);
+  var list_Body = document.getElementById("main_Block");
+  var list_Child = $("<li class='ui-sortable-handle'></li>");
+  var child_Body = $("<div class='row block image'></div>");
+  var child_Header = $('<div class="block_Text_Field">Image</div>');
+  var dropzone_Block = $("<div class='dropzone'></div>");
+  var drop_Header = $('<div>Drop your image here</div>');
+  var textarea = $('<input type="file" accept="image/png,image/jpeg, application/pdf" />');
+  var button = $('<button class="btn btn-danger">Destroy</button>');
+
+  $(list_Child).attr("id", global_Counter);
+  $(button).attr("id", global_Counter + "_button");
+  $(button).attr("onclick", "delete_Function(id)");
+  $(dropzone_Block).attr("id", global_Counter + "_drop");
+
+  $(dropzone_Block).append(drop_Header, textarea);
+  $(child_Body).append(child_Header, dropzone_Block, button);
+  $(list_Child).append(child_Body);
+  $(list_Body).append(list_Child);
   global_Counter++;
+
+  $(function() {
+    var temp = document.getElementsByClassName("dropzone");
+    console.log(temp);
+    for(var i = 0; i < temp.length; i++){
+      func_Fuck("#" + temp[i].id)
+    }
+  });
 }
 
 var create_New_Video = function(){
-  console.log(global_Counter);
+  var list_Body = document.getElementById("main_Block");
+  var list_Child = $("<li class='ui-sortable-handle'></li>");
+  var child_Body = $("<div class='row block video'></div>");
+  var child_Header = $('<div class="block_Text_Field">Video</div>');
+  var textarea = $('<input type="text" placeholder="Your link" class="form-control block_Text_Area">');
+  var button = $('<button class="btn btn-danger">Destroy</button>');
+
+  $(list_Child).attr("id", global_Counter);
+  $(button).attr("id", global_Counter + "_button");
+  $(button).attr("onclick", "delete_Function(id)");
+
+  $(child_Body).append(child_Header, textarea, button);
+  $(list_Child).append(child_Body);
+  $(list_Body).append(list_Child);
   global_Counter++;
 }
 

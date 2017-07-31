@@ -12,27 +12,16 @@
         <i class="fa fa-video-camera" style="color: white"></i>
       </a>
     </div>
-    <div class="col-lg-6" style="text-align:right">
-      <button class="btn btn-success" onclick="ajax_Request()">Save changes</button>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-3">
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+          <%= link_to "Destroy", post_step_path(@step.id), method: :delete, :class => "btn btn-danger"%>
+          <button type="button" class="btn btn-success">Save changes</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 <ol id="main_Block" class="drag_List">
-  <li>
-    <div class="row block image">
-      <div class="block_Text_Field">Image</div>
-      <div class="dropzone" id="temp_3">
-        <div>Drop your image here</div>
-        <input type="file" accept="image/png,image/jpeg, application/pdf" />
-      </div>
-      <button class="btn btn-danger">Destroy</button>
-    </div>
-  </li>
-  <li>
-    <div class="row block video">
-      <div class="block_Text_Field">Video</div>
-      <input type="text" placeholder="Your link" class="form-control block_Text_Area">
-      <button class="btn btn-danger">Destroy</button>
-    </div>
-  </li>
 </ol>

@@ -7,11 +7,12 @@
           <span class="input-group-addon"><%= t('posts.edit.name') %></span>
           <%= f.text_field :name, :class => "form-control" %>
         </div>
-        <button type="submit" class="btn btn-facebook edit_Post_Margin"><%= t('posts.edit.update') %></button>
+        <button type="submit" class="btn btn-facebook edit_Post_Button"><%= t('posts.edit.update') %></button>
+        <%= button_to "Destroy", post_path(@post.id), method: :delete , :style =>"margin-bottom: 20%", :class => "btn btn-danger edit_Post_Button", data: { confirm: "Are you sure?"} %>
       <% end %>
 
       <div style="text-align:center;"><%= t('posts.edit.form.create') %></div>
-      <%= form_for(@step) do |f| %>
+      <%= form_for [@post, @step] do |f| %>
         <div class="field" style = "display:none">
           <%= f.label :post_id %>
           <%= f.number_field :post_id, :value => @post.id %>
@@ -38,7 +39,7 @@
         </thead>
         <tbody class='example'>
           <% @steps.each_with_index do |step, index| %>
-            <tr onclick="window.location.href='<%= edit_step_path(step.id) %>'" style="text-align: center">
+            <tr onclick="window.location.href='<%= edit_post_step_path(id: step.id, post_id: step.post.id) %>'" style="text-align: center">
               <th scope="row"><%= index + 1 %></th>
               <td><%= step.name %></td>
               <td><%= step.updated_at %></td>
