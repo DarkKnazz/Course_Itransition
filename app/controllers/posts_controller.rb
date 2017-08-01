@@ -28,7 +28,7 @@ end
       redirect_to root_path
     end
     @step = Step.new
-    @steps = @post.steps
+    @steps = @post.steps.order("position")
   end
 
   # POST /posts

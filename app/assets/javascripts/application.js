@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery-sortable.js
+//= require html.sortable
 //= require jquery_ujs
 //= require main
 //= require steps_Edit

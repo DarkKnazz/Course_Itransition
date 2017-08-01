@@ -1,5 +1,5 @@
 class StepsController < ApplicationController
-  before_action :set_step, only: [:show, :edit, :update, :destroy]
+  before_action :set_step, only: [:edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
   respond_to :js, :json, :html
   # GET /steps/1/edit
@@ -66,15 +66,12 @@ class StepsController < ApplicationController
     end
   end
 
-  def upload_Image
-    
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def get_Link_From_Video
-      link = step_params[:video].split("v=")[1]
+  def sort
+      params[:order].each do |key,value|
+        Step.find(value[:id]).update_attribute(:position,value[:position])
+      end
     end
+  private
 
     def set_step
       @step = Step.find(params[:id])

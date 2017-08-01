@@ -25,9 +25,10 @@
       <% end %>
       <div style="font-weight:normal">
         <%= link_to t('posts.edit.form.links.switch'), post_path(@post.id) %>
+        <button onclick="updateDiv()" class="btn btn-secondary">Refresh</button>
       </div>
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-8" id="reloading">
       <div style="padding-left: 5%; padding-right:5%">
         <table class="table table-striped" style="text-align: center">
         <thead>
@@ -37,14 +38,14 @@
             <th style="text-align: center"><%= t('posts.edit.table.update') %></th>
           </tr>
         </thead>
-        <tbody class='example'>
+        <tbody id="steps_List">
           <% @steps.each_with_index do |step, index| %>
-            <tr onclick="window.location.href='<%= edit_post_step_path(id: step.id, post_id: step.post.id) %>'" style="text-align: center">
+            <tr class="list_Item" data-id = "<%= step.id %>" onclick="window.location.href='<%= edit_post_step_path(id: step.id, post_id: step.post.id) %>'" style="text-align: center">
               <th scope="row"><%= index + 1 %></th>
               <td><%= step.name %></td>
               <td><%= step.updated_at %></td>
             </tr>
-        <% end %>
+          <% end %>
         </tbody>
       </table>
       </div>

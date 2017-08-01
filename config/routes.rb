@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   resources :posts, :only => [:index, :show, :update, :edit, :destroy]
   get 'tags/:tag', to: 'posts#index', as: :tag
   post 'clear', to: 'steps#clear', as: 'clear'
+  resources :steps do
+    put :sort, on: :collection
+  end
   match '*path' => redirect('/'), via: :get
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
