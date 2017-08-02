@@ -62,10 +62,10 @@ ActiveRecord::Schema.define(version: 20170801082201) do
 
   create_table "steps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "post_id"
-    t.string   "content",    default: ""
+    t.text     "content",    limit: 16777215
     t.string   "name"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "text"
     t.string   "image"
     t.string   "video"

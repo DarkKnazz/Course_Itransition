@@ -30,7 +30,22 @@ li {
 }
 
 .block_Text_Area{
-  margin-bottom: 2%;
+  margin-bottom: 3%;
+}
+
+.block_Image{
+  position: relative;
+  height: 250px;
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+}
+
+.block_Image img{
+  border-radius: 5px;
+  vertical-align: middle;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .dropzone {

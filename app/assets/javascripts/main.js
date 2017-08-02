@@ -19,20 +19,6 @@ var f1 = function(){
 $(function  () {
   $("tbody.example").sortable();
 });
-
-var ajax_Request = function(){
-  var temp = $("#form1").val();
-  $.ajax({
-        url : "/clear",
-        type : "post",
-        data : { data_value: JSON.stringify(temp) }
-    });
-}
-
-var drop = document.querySelector('#steps_List');
-
-
-
 var ready, set_positions;
 
 set_positions = function(){

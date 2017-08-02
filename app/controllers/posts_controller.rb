@@ -8,13 +8,14 @@ class PostsController < ApplicationController
     if params[:tag]
       @posts = Post.tagged_with(params[:tag])
     else
-      @posts = Post.all
+      @posts = Post.all.includes(:tags)
 end
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @steps = @post.steps
   end
 
   # GET /posts/new

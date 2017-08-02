@@ -1,45 +1,13 @@
 var global_Counter=  1;
-var func_Fuck = function(id){
-  var temp_img = id + " img";
-  var temp_div = id + " div";
-  console.log(id);
-  $(id).on('dragover', function() {
-    $(this).addClass('hover');
-  });
 
-  $(id).on('dragleave', function() {
-    $(this).removeClass('hover');
-  });
-  var input_Temp = id + " input";
-  $(input_Temp).on('change', function(e) {
-    var file = this.files[0];
-
-    $(id).removeClass('hover');
-
-    if (this.accept && $.inArray(file.type, this.accept.split(/, ?/)) == -1) {
-      return alert('File type not allowed.');
-    }
-
-    $(id).addClass('dropped');
-    $(temp_img).remove();
-
-    if ((/^image\/(gif|png|jpeg)$/i).test(file.type)) {
-      var reader = new FileReader(file);
-
-      reader.readAsDataURL(file);
-
-      reader.onload = function(e) {
-        var data = e.target.result,
-            $img = $('<img />').attr('src', data).fadeIn();
-        $(temp_div).html($img);
-      };
-    } else {
-      var ext = file.name.split('.').pop();
-
-      $(temp_div).html(ext);
-    }
-  });
-}
+$(document).ready(function(){
+  if(document.getElementById("upload_widget_opener")){
+    document.getElementById("upload_widget_opener").addEventListener("click", function() {
+      cloudinary.openUploadWidget({ cloud_name: 'dgyxtx2pm', upload_preset: 'acjwzy3r'},
+        function(error, result) { console.log(result[0].secure_url);create_New_Image(result[0].secure_url) });
+    }, false);
+  }
+});
 
 $(function  () {
   $("ol.drag_List").sortable({ containment: "parent" });
@@ -63,34 +31,26 @@ var create_New_Text = function(){
   global_Counter++;
 }
 
-var create_New_Image = function(){
+var create_New_Image = function(value){
   var list_Body = document.getElementById("main_Block");
   var list_Child = $("<li class='ui-sortable-handle'></li>");
   var child_Body = $("<div class='row block image'></div>");
   var child_Header = $('<div class="block_Text_Field">Image</div>');
-  var dropzone_Block = $("<div class='dropzone'></div>");
-  var drop_Header = $('<div>Drop your image here</div>');
-  var textarea = $('<input type="file" accept="image/png,image/jpeg, application/pdf" />');
+  var image_Body = $("<div class='block_Image'></div>");
+  var image_Block = $('<img>');
   var button = $('<button class="btn btn-danger">Destroy</button>');
 
   $(list_Child).attr("id", global_Counter);
   $(button).attr("id", global_Counter + "_button");
   $(button).attr("onclick", "delete_Function(id)");
-  $(dropzone_Block).attr("id", global_Counter + "_drop");
+  $(image_Block).attr("src", value);
 
-  $(dropzone_Block).append(drop_Header, textarea);
-  $(child_Body).append(child_Header, dropzone_Block, button);
+  $(image_Body).append(image_Block);
+  $(child_Body).append(child_Header, image_Body, button);
   $(list_Child).append(child_Body);
   $(list_Body).append(list_Child);
-  global_Counter++;
 
-  $(function() {
-    var temp = document.getElementsByClassName("dropzone");
-    console.log(temp);
-    for(var i = 0; i < temp.length; i++){
-      func_Fuck("#" + temp[i].id)
-    }
-  });
+  global_Counter++;
 }
 
 var create_New_Video = function(){
@@ -110,6 +70,56 @@ var create_New_Video = function(){
   $(list_Body).append(list_Child);
   global_Counter++;
 }
+
+var ajax_Request = function(){
+  var temp = "";
+  var elements_Of_Step = document.getElementsByClassName("block");
+  var id_Block = document.getElementsByClassName("edit_Step_Success")[0].attributes[3].value.split("B")[0];
+  console.log(id_Block);
+  for(var i = 0; i < elements_Of_Step.length; i++){
+    if($( elements_Of_Step[i] ).hasClass( "text" )){
+      var value_Text = elements_Of_Step[i].childNodes[1].value;
+      temp += "<div class='row show_Text'>" +
+                "<div class='col-lg-1'></div>" +
+                  "<div class='col-lg-10'>" +
+                    value_Text +
+                  "</div>" +
+                "<div class='col-lg-1'></div>" + "</div>";
+    }
+    if($( elements_Of_Step[i] ).hasClass( "image" )){
+      var value_Image = elements_Of_Step[i].childNodes[1].childNodes[0].attributes[0].value
+      temp += "<div class='row show_Image'>" +
+                "<div class='col-lg-1'></div>" +
+                  "<div class='col-lg-10' style='text-align:center'>" +
+                    "<img src='" + value_Image + "' class='show_Inner_Image'>" +
+                  "</div>" +
+                "<div class='col-lg-1'></div>" + "</div>";
+    }
+
+    if($( elements_Of_Step[i] ).hasClass( "video" )){
+      var value_Video = elements_Of_Step[i].childNodes[1].value.split("v=")[1];
+      temp += "<div class='row show_Video'>" +
+                "<div class='col-lg-3'></div>" +
+                  "<div class='col-lg-6'>" +
+                    "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + value_Video + "' frameborder='0' allowfullscreen></iframe>"
+                  "</div>" +
+                "<div class='col-lg-3'></div>" + "</div>";
+    }
+  }
+  $.ajax({
+        url : "/clear",
+        type : "post",
+        data : { data_value: temp,
+                 id: id_Block },
+        success: function(){
+          window.location.href="/posts";
+        }
+
+
+    });
+}
+
+
 
 var delete_Function = function(id){
   var delete_Id = "#"+ id.split("_")[0];

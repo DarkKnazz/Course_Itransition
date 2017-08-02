@@ -4,10 +4,8 @@ class StepsController < ApplicationController
   respond_to :js, :json, :html
   # GET /steps/1/edit
   def edit
-    respond_to do |format|
-      format.html
-      format.js
-  end
+    @step.content = ""
+    @step.save
   end
 
   # POST /steps
@@ -16,6 +14,7 @@ class StepsController < ApplicationController
     @post = Post.find(params[:post_id])
     @step = Step.new(:post=>@post)
     @step = Step.create(step_params)
+    @step.content = ""
     respond_to do |format|
       if @step.save
         format.html { redirect_to edit_post_path(@post.id), notice: 'Step was successfully created.' }
@@ -33,7 +32,7 @@ class StepsController < ApplicationController
     respond_to do |format|
       if @step
         format.html { redirect_to edit_post_step_path(@step.id) }
-        format.json { render :show, status: :ok, location: @step }
+        format.json { render :show, data: @step.post.id }
       else
         format.html { render :edit }
         format.json { render json: @step.errors, status: :unprocessable_entity }
@@ -52,18 +51,9 @@ class StepsController < ApplicationController
   end
 
   def clear
-    @step = Step.find(4)
-    @step.content = params[:data_value].split("\"")[1]
+    @step = Step.find(params[:id])
+    @step.content = params[:data_value]
     @step.save
-    respond_to do |format|
-      if @step
-        format.html { redirect_to edit_step_path(@step.id) }
-        format.json { render :show, status: :ok, location: @step }
-      else
-        format.html { render :edit }
-        format.json { render json: @step.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   def sort
