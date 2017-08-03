@@ -41,21 +41,26 @@ end
   # POST /posts
   # POST /posts.json
   def create
-    @post = current_user.posts.create(post_params)
-    current_user.count_Posts += 1
-    current_user.save
-    if @post.preview == ""
-      @post.preview = "http://mirgif.com/KARTINKI/kosmos/kosmos-42.jpg"
-      @post.save
-    end
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post}
-        format.json { render :show, status: :created, location: @post }
+    if post_params[:name].empty? || post_params[:category_id].empty?
+      redirect_to new_post_path
+    else
+      id_Categ = Category.where(:name => post_params[:category_id])[0]
+      if id_Categ == nil
+        redirect_to new_post_path
       else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+        @post = current_user.posts.create(:name => post_params[:name], :category_id => id_Categ.id, :preview => post_params[:preview])
+        current_user.count_Posts += 1
+        current_user.save
+
+        if @post.preview == ""
+          @post.preview = "http://mirgif.com/KARTINKI/kosmos/kosmos-42.jpg"
+          @post.save
+        end
+        respond_to do |format|
+          format.html { redirect_to @post}
+          format.json { render :show, status: :created, location: @post }
+        end
+    end
     end
   end
 
@@ -91,6 +96,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:user_id, :name, :rate, :tag_list, :preview)
+      params.require(:post).permit(:user_id, :name, :rate, :tag_list, :preview, :category_id)
     end
 end

@@ -1,6 +1,15 @@
 class Post < ApplicationRecord
 	belongs_to :user
+	belongs_to :category
 	has_many :steps
 	acts_as_taggable
-	ratyrate_rateable 'visual_effects', 'original_score', 'director', 'custome_design'
+	ratyrate_rateable 'original_score'
+
+	def avg_rating_dimension(post)
+    array = Rate.where(rateable_id: id, rateable_type: 'Post').where(dimension: "original_score")
+    stars = array.map {|post| post.stars }
+    star_count = stars.count
+    stars_total = stars.inject(0){|sum,x| sum + x }
+    score = stars_total / (star_count.nonzero? || 1)
+  end
 end

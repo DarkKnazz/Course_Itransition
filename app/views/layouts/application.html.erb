@@ -34,6 +34,9 @@
             <img src=<%= current_user.image%> width="40" height="40" class="avatar_Login dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton" style="color:#400627">
             <div class = "dropdown-item" style="color:#400627; border-bottom: 2px solid #400627;"><%= current_user.nickname %></div>
+            <% if current_user.isAdmin %>
+              <div class = "dropdown-item" data-toggle="modal" data-target=".category_Create">Create category</div>
+            <% end %>
             <%= link_to t('header.profile.create'), new_post_path, :class => "dropdown-item", :style =>"color:#400627;"%>
             <%= link_to t('header.profile.edit'), edit_user_path(current_user.id), :class => "dropdown-item", :style =>"color:#400627;"%>
             <%= link_to t('header.profile.logout'), destroy_user_session_path, method: :delete, :class => "dropdown-item", :style =>"color:#400627;"%>
@@ -75,6 +78,28 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('header.modal.button') %></button>
           </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade bd-example-modal-md category_Create" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+
+      <div class="modal-content" style="text-align: left; padding-top: 0%; width: 300px; padding-left: 3%;padding-right: 3%;">
+        <div class="modal-body">
+            <%= form_for(@category) do |f| %><br>
+            <div class="row">
+              <div class="input-group">
+                <span class="input-group-addon"><%= t('posts.form.name') %></span>
+                <%= f.text_field :name, :class => "form-control" %>
+              </div>
+            </div><br>
+
+          <div class="row" style="padding-left: 15%">
+            <button type="submit" class="btn btn-secondary" style="width: 70%">Create category</button>
+          </div><br>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
