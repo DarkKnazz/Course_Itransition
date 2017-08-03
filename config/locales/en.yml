@@ -60,7 +60,7 @@ en:
           switch: "Show"
       table:
         step: "Step name"
-        update: "Updated"    
+        update: "Updated"
     show:
       links:
         edit: "Edit post"

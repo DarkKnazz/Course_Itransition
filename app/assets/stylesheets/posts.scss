@@ -82,3 +82,40 @@ tbody.example tr.placeholder:before {
 	max-width: 100%;
 	max-height: 100%;
 }
+
+.pagination {
+    font-size: 16px;
+}
+
+.pagination > * {
+		border: 1px solid lightgray;
+		margin-right: 0.1em;
+    padding: 0.3em 0.4em;
+		transition: border 0.5s, background-color 0.5s, color 0.5s;
+}
+
+.pagination a{
+ 	color: #400627;
+}
+
+.pagination a:hover {
+    background: lightgray none repeat scroll 0 0;
+		border-color:gray;
+		text-decoration: none;
+		color: black;
+}
+
+.pagination a:active {
+    text-shadow: none;
+		text-decoration: none;
+}
+
+.pagination .current {
+    background: #202020 none repeat scroll 0 0;
+    color: white;
+    text-shadow: 1px 1px 1px #171717;
+}
+
+.pagination .disabled {
+    color: #C0C0C0;
+}

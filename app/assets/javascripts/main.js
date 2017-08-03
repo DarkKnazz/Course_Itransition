@@ -11,9 +11,9 @@ var f1 = function(){
 
       $('.btn-toggle').find('.btn').toggleClass('btn-secondary');
 
-      $(".header").toggleClass("light-header", 1000);
+      $(".header").toggleClass("light-header");
 	  $("body").toggleClass("body_light");
- 	  $(".footer").toggleClass("light-header", 1000);
+ 	  $(".footer").toggleClass("light-header");
 }
 
 $(function  () {

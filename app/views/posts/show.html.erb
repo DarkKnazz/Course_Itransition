@@ -15,27 +15,11 @@
     </div>
   </div>
 
-  <% @post.tag_list.each do |tag| %>
+  <% @post.tags.each do |tag| %>
     <%= link_to tag, tag_path(tag), :class => "badge badge-pill badge-danger tags" %>
   <% end %>
-  <div class="row show_Video">
-    <div class="col-lg-3"></div>
-    <div class="col-lg-6">
-      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2ONfK-dM6nY" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="col-lg-3"></div>
-  </div>
 
-  <div class="row show_Image">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-10" style="text-align:center">
-      <img src="http://minionomaniya.ru/wp-content/uploads/2016/01/%D0%BC%D0%B8%D0%BD%D1%8C%D0%BE%D0%BD%D1%8B-%D0%BF%D1%80%D0%B8%D0%BA%D0%BE%D0%BB%D1%8B-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B8.jpg" class="show_Inner_Image">
-    </div>
-    <div class="col-lg-1"></div>
+  <div id="steps_List_Show">
+    <%= render 'steps_List_Show' %>
   </div>
-
-  <% @steps.each do |step| %>
-      <%= step.id %>
-      <%= step.content.html_safe %>
-  <% end %>
 </div>

@@ -60,3 +60,5 @@ gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-
 gem 'ratyrate'
 gem 'cloudinary'
 gem 'acts_as_list'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'

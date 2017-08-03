@@ -75,16 +75,15 @@ var ajax_Request = function(){
   var temp = "";
   var elements_Of_Step = document.getElementsByClassName("block");
   var id_Block = document.getElementsByClassName("edit_Step_Success")[0].attributes[3].value.split("B")[0];
-  console.log(id_Block);
   for(var i = 0; i < elements_Of_Step.length; i++){
     if($( elements_Of_Step[i] ).hasClass( "text" )){
       var value_Text = elements_Of_Step[i].childNodes[1].value;
       temp += "<div class='row show_Text'>" +
-                "<div class='col-lg-1'></div>" +
-                  "<div class='col-lg-10'>" +
+                "<div class='col-lg-2'></div>" +
+                  "<div class='col-lg-8'>" +
                     value_Text +
                   "</div>" +
-                "<div class='col-lg-1'></div>" + "</div>";
+                "<div class='col-lg-2'></div>" + "</div>";
     }
     if($( elements_Of_Step[i] ).hasClass( "image" )){
       var value_Image = elements_Of_Step[i].childNodes[1].childNodes[0].attributes[0].value
@@ -101,7 +100,7 @@ var ajax_Request = function(){
       temp += "<div class='row show_Video'>" +
                 "<div class='col-lg-3'></div>" +
                   "<div class='col-lg-6'>" +
-                    "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + value_Video + "' frameborder='0' allowfullscreen></iframe>"
+                    "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + value_Video + "' frameborder='0' allowfullscreen></iframe>" +
                   "</div>" +
                 "<div class='col-lg-3'></div>" + "</div>";
     }
@@ -112,10 +111,11 @@ var ajax_Request = function(){
         data : { data_value: temp,
                  id: id_Block },
         success: function(){
-          window.location.href="/posts";
+          var title = document.location.href;
+          var post_id = title.split("/")[4];
+          var edit_Post_Title = "/posts/" + post_id + "/edit";
+          document.location.href = edit_Post_Title;
         }
-
-
     });
 }
 

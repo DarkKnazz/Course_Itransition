@@ -15,7 +15,13 @@ end
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @steps = @post.steps
+    @post = Post.includes(:tags).find(params[:id])
+    @steps = @post.steps.paginate(:per_page => 1, :page => params[:page])
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @steps }
+      format.js
+end
   end
 
   # GET /posts/new

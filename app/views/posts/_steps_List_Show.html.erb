@@ -1,0 +1,12 @@
+<% @steps.each do |step| %>
+    <%= step.id %>
+    <%= step.content.html_safe %>
+<% end %>
+
+<div class="row" style="margin-top: 2%;align-items: center">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4">
+    <%= will_paginate @steps, :page_links => false %>
+  </div>
+  <div class="col-lg-4"></div>
+</div>
