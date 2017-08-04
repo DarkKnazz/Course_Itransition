@@ -6,9 +6,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if params[:tag]
-      @posts = Post.tagged_with(params[:tag])
+      @posts = Post.tagged_with(params[:tag]).includes(:category)
     else
-      @posts = Post.all.includes(:tags)
+      @posts = Post.all.includes(:category)
     end
   end
 
@@ -49,7 +49,9 @@ end
       if id_Categ == nil
         redirect_to new_post_path
       else
-        @post = current_user.posts.create(:name => post_params[:name], :category_id => id_Categ.id, :preview => post_params[:preview])
+        @post = current_user.posts.create(post_params)
+        @post.category_id = id_Categ.id
+        @post.save
         current_user.count_Posts += 1
         current_user.save
 

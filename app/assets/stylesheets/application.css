@@ -42,6 +42,7 @@ body{
     padding-top: 0.5%;
     padding-bottom: 0.5%;
     margin-top: 1%;
+    z-index: 9999;
     background-color: #400627;
     color: white;
 }

@@ -79,11 +79,11 @@ var ajax_Request = function(){
     if($( elements_Of_Step[i] ).hasClass( "text" )){
       var value_Text = elements_Of_Step[i].childNodes[1].value;
       temp += "<div class='row show_Text'>" +
-                "<div class='col-lg-2'></div>" +
-                  "<div class='col-lg-8'>" +
+                "<div class='col-lg-1'></div>" +
+                  "<div class='col-lg-10'>" +
                     value_Text +
                   "</div>" +
-                "<div class='col-lg-2'></div>" + "</div>";
+                "<div class='col-lg-1'></div>" + "</div>";
     }
     if($( elements_Of_Step[i] ).hasClass( "image" )){
       var value_Image = elements_Of_Step[i].childNodes[1].childNodes[0].attributes[0].value
@@ -98,11 +98,11 @@ var ajax_Request = function(){
     if($( elements_Of_Step[i] ).hasClass( "video" )){
       var value_Video = elements_Of_Step[i].childNodes[1].value.split("v=")[1];
       temp += "<div class='row show_Video'>" +
-                "<div class='col-lg-3'></div>" +
-                  "<div class='col-lg-6'>" +
+                "<div class='col-lg-1'></div>" +
+                  "<div class='col-lg-10'>" +
                     "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + value_Video + "' frameborder='0' allowfullscreen></iframe>" +
                   "</div>" +
-                "<div class='col-lg-3'></div>" + "</div>";
+                "<div class='col-lg-1'></div>" + "</div>";
     }
   }
   $.ajax({

@@ -6,6 +6,12 @@
 	border-bottom: 1px solid lightgray;
 }
 
+.card-block{
+	-webkit-box-shadow: 0 7px 6px -6px #777;
+	 -moz-box-shadow: 0 7px 6px -6px #777;
+				box-shadow: 0 7px 6px -6px #777;
+}
+
 .body_Posts_Show{
 	padding-left: 10%;
 	padding-right: 10%;
@@ -67,13 +73,13 @@ tbody.example tr.placeholder:before {
 }
 
 .show_Video{
-	height: 300px;
+	height: 350px;
 	padding-top: 1%;
 	padding-bottom: 1%;
 }
 
 .show_Image{
-	height: 300px;
+	height: 350px;
 	padding-top: 1%;
 	padding-bottom: 1%;
 }
@@ -121,17 +127,14 @@ tbody.example tr.placeholder:before {
 }
 
 #comments{
-	height:300px;
-	overflow: auto;
-	padding: 1%;
-	border: 1px solid lightgray;
 	border-radius: 5px;
+	margin-top: -2%;
 }
 
 .comment{
 	padding-left: 1%;
 	padding-right:1%;
-	padding-top: 1%;
-	padding-bottom: 1%;
+	padding-top: 2%;
+	padding-bottom: 2%;
 	border-bottom: 1px solid lightgray;
 }

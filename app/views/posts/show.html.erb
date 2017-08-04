@@ -16,7 +16,7 @@
   </div>
 
   <% @post.tags.each do |tag| %>
-    <%= link_to tag, tag_path(tag), :class => "badge badge-pill badge-danger tags" %>
+    <%= link_to tag, tag_path(tag.name), :class => "badge badge-pill badge-danger tags" %>
   <% end %>
 
   <div id="steps_List_Show">
@@ -26,7 +26,7 @@
     <div id="comments">
       <%= render @comments %>
     </div>
-    <div class="row" style="margin-top:2%; padding-left:1%; padding-right:1%;">
+    <div class="row">
       <div class="input-group">
         <span class="input-group-addon">Commentary</span>
         <input id="input_Text" data-post-id=<%= @post.id %> data-user-id=<%= current_user.id %> type="text" data-behavior="post_speaker" class="form-control">
