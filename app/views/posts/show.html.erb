@@ -22,12 +22,15 @@
   <div id="steps_List_Show">
     <%= render 'steps_List_Show' %>
   </div>
-  <div id="comments">
-    <%= render @comments %>
-  </div>
-
-  <form>
-    <label>Say something</label><br>
-    <input id="input_Text" data-post-id = <%= @post.id %> type="text" data-behavior="post_speaker">
-  </form>
+  <% if user_signed_in? %>
+    <div id="comments">
+      <%= render @comments %>
+    </div>
+    <div class="row" style="margin-top:2%; padding-left:1%; padding-right:1%;">
+      <div class="input-group">
+        <span class="input-group-addon">Commentary</span>
+        <input id="input_Text" data-post-id=<%= @post.id %> data-user-id=<%= current_user.id %> type="text" data-behavior="post_speaker" class="form-control">
+      </div>
+    </div><br>
+  <% end %>
 </div>

@@ -8,7 +8,7 @@ class PostChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Comment.create! content: data['comment']
+    Comment.create! content: data['comment'], user_id: data['user'], post_id: data['post']
   end
 
   private

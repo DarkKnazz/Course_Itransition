@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.includes(:tags).find(params[:id])
-    @comments = Comment.all
+    @comments = @post.comments.includes(:user)
     @steps = @post.steps.paginate(:per_page => 1, :page => params[:page])
     respond_to do |format|
       format.html # index.html.erb

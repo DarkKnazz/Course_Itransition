@@ -10,7 +10,7 @@ jQuery ->
       $('#comments').append data['comment']
 
     speak: (comment) ->
-      @perform 'speak', comment: comment, post: `$("#input_Text").data("postId")`
+      @perform 'speak', comment: comment, post: `$("#input_Text").data("postId")`, user: `$("#input_Text").data("userId")`
 
   $(document).on 'keypress', '[data-behavior~=post_speaker]', (event) ->
     if event.keyCode is 13
