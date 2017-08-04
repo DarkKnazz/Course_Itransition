@@ -9,13 +9,14 @@ class PostsController < ApplicationController
       @posts = Post.tagged_with(params[:tag])
     else
       @posts = Post.all.includes(:tags)
-end
+    end
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
     @post = Post.includes(:tags).find(params[:id])
+    @comments = Comment.all
     @steps = @post.steps.paginate(:per_page => 1, :page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
@@ -82,6 +83,8 @@ end
   # DELETE /posts/1.json
   def destroy
     @post.destroy
+    current_user.count_Posts -= 1
+    current_user.save
     respond_to do |format|
       format.html { redirect_to posts_path, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }

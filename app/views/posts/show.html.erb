@@ -22,4 +22,12 @@
   <div id="steps_List_Show">
     <%= render 'steps_List_Show' %>
   </div>
+  <div id="comments">
+    <%= render @comments %>
+  </div>
+
+  <form>
+    <label>Say something</label><br>
+    <input id="input_Text" data-post-id = <%= @post.id %> type="text" data-behavior="post_speaker">
+  </form>
 </div>
