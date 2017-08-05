@@ -1,9 +1,9 @@
 <div class="container-fluid">
-  <div class="row">
+  <div class="row post_Edit_Block">
     <div class="col-lg-4 edit_Post_Column">
       <div style="text-align:center;"><%= t('posts.edit.header') %></div>
       <%= form_for(@post) do |f| %>
-        <div class="input-group" style="width: 90%">
+        <div class="input-group">
           <span class="input-group-addon"><%= t('posts.edit.name') %></span>
           <%= f.text_field :name, :class => "form-control" %>
         </div>
@@ -17,11 +17,11 @@
           <%= f.label :post_id %>
           <%= f.number_field :post_id, :value => @post.id %>
         </div>
-        <div class="input-group" style="width: 90%">
+        <div class="input-group">
           <span class="input-group-addon"><%= t('posts.edit.form.step') %></span>
           <%= f.text_field :name, :class => "form-control" %>
         </div>
-        <button type="submit" class="btn btn-success" style="width: 90%;margin-top:3%;"><%= t('posts.edit.form.button') %></button>
+        <button type="submit" class="btn btn-success" style="width:100%;margin-top:3%;"><%= t('posts.edit.form.button') %></button>
       <% end %>
       <div style="font-weight:normal">
         <%= link_to t('posts.edit.form.links.switch'), post_path(@post.id) %>
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="col-lg-8" id="reloading">
-      <div style="padding-left: 5%; padding-right:5%">
+      <div>
         <table class="table table-striped" style="text-align: center;background-color:white">
         <thead>
           <tr>
@@ -40,10 +40,10 @@
         </thead>
         <tbody id="steps_List">
           <% @steps.each_with_index do |step, index| %>
-            <tr class="list_Item" data-id = "<%= step.id %>" onclick="window.location.href='<%= edit_post_step_path(id: step.id, post_id: step.post.id) %>'" style="text-align: center">
-              <th scope="row"><%= index + 1 %></th>
+            <tr class="list_Item" data-id = "<%= step.id %>" onclick="window.location.href='<%= edit_post_step_path(id: step.id, post_id: step.post.id) %>'">
+              <th scope="row" style="text-align: center"><%= index + 1 %></th>
               <td><%= step.name %></td>
-              <td><%= step.updated_at %></td>
+              <td><%= step.updated_at.strftime("%d.%m.%y, %H:%M") %></td>
             </tr>
           <% end %>
         </tbody>

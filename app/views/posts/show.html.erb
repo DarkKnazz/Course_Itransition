@@ -1,14 +1,14 @@
 <div class="container-fluid body_Posts_Show">
   <div class="row header_Posts_Show">
-    <div class="col-lg-7">
+    <div class="col-lg-6">
       <%= @post.name %>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-3" style="text-align: right">
       <% if current_user %>
         <%= rating_for @post, "original_score" %>
       <% end %>
     </div>
-    <div class="col-lg-2" style="text-align: left">
+    <div class="col-lg-3" style="text-align: right">
       <% if (current_user && (@post.user_id == current_user.id || current_user.isAdmin)) %>
         <%= link_to t('posts.show.links.edit'), edit_post_path(@post.id), class: "btn btn-success" %>
       <% end %>
