@@ -1,6 +1,7 @@
 .header_Posts_Show{
 	padding-top: 1%;
 	padding-bottom: 1%;
+
 	font-size: 22px;
 	font-weight: bold;
 	border-bottom: 1px solid lightgray;
@@ -13,8 +14,15 @@
 }
 
 .body_Posts_Show{
-	padding-left: 10%;
-	padding-right: 10%;
+	margin-left: 20%;
+	margin-right: 20%;
+	padding-left: 2%;
+	padding-right: 2%;
+	padding-bottom: 1%;
+	background-color: white;
+	-webkit-box-shadow: 0 7px 6px -6px #777;
+	 -moz-box-shadow: 0 7px 6px -6px #777;
+				box-shadow: 0 7px 6px -6px #777;
 }
 
 .edit_Post_Column{
@@ -24,7 +32,11 @@
 	padding-top: 1%;
 	padding-bottom: 2%;
 	border: 1px solid lightgray;
+	background-color: white;
 	border-radius: 5px;
+	-webkit-box-shadow: 0 7px 6px -6px #777;
+	 -moz-box-shadow: 0 7px 6px -6px #777;
+				box-shadow: 0 7px 6px -6px #777;
 }
 
 .edit_Post_Button{
@@ -33,8 +45,11 @@
 }
 
 .posts_New_Body{
-	padding-left: 20%;
-	padding-right: 30%;
+	margin-left: 20%;
+	margin-right: 30%;
+	padding-left: 2%;
+	padding-right: 2%;
+	background-color: white;
 	font-size: 20px;
 	font-weight: bold;
 }
@@ -65,23 +80,23 @@ tbody.example tr.placeholder:before {
 }
 
 .show_Text{
-	width: 100%;
-	padding-top: 1%;
-	padding-bottom: 1%;
+	width: 90%;
+	padding-left: 5%;
+	padding-top: 2%;
+	padding-bottom: 2%;
 	word-wrap:break-word;
 	font-size: 20px;
 }
 
 .show_Video{
 	height: 350px;
-	padding-top: 1%;
-	padding-bottom: 1%;
+	padding-top: 2%;
+	padding-bottom: 2%;
 }
 
 .show_Image{
-	height: 350px;
-	padding-top: 1%;
-	padding-bottom: 1%;
+	padding-top: 2%;
+	padding-bottom: 2%;
 }
 
 .show_Inner_Image{

@@ -8,7 +8,11 @@ class PostsController < ApplicationController
     if params[:tag]
       @posts = Post.tagged_with(params[:tag]).includes(:category)
     else
-      @posts = Post.all.includes(:category)
+      if params[:val]
+        @posts = Post.search(params[:val]).includes(:category)
+      else
+        @posts = Post.all.includes(:category)
+      end
     end
   end
 
@@ -91,6 +95,10 @@ end
       format.html { redirect_to posts_path, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    @posts = Post.search(params[:val]).includes(:category)
   end
 
   private

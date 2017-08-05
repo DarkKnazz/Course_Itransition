@@ -1,14 +1,14 @@
 <div class="container-fluid body_Posts_Show">
   <div class="row header_Posts_Show">
-    <div class="col-lg-9">
+    <div class="col-lg-7">
       <%= @post.name %>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-3">
       <% if current_user %>
         <%= rating_for @post, "original_score" %>
       <% end %>
     </div>
-    <div class="col-lg-1" style="text-align: left">
+    <div class="col-lg-2" style="text-align: left">
       <% if (current_user && (@post.user_id == current_user.id || current_user.isAdmin)) %>
         <%= link_to t('posts.show.links.edit'), edit_post_path(@post.id), class: "btn btn-success" %>
       <% end %>
@@ -23,14 +23,20 @@
     <%= render 'steps_List_Show' %>
   </div>
   <% if user_signed_in? %>
-    <div id="comments">
+    <div id="comments" style="margin-top:1%">
       <%= render @comments %>
     </div>
-    <div class="row">
+    <div class="row" style="margin-top:2%">
       <div class="input-group">
-        <span class="input-group-addon">Commentary</span>
+        <span class="input-group-addon">Comment</span>
         <input id="input_Text" data-post-id=<%= @post.id %> data-user-id=<%= current_user.id %> type="text" data-behavior="post_speaker" class="form-control">
       </div>
     </div><br>
+  <% else %>
+    <div class="row" style="margin-top:2%;margin-bottom:2%">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-5"><strong>Sign in or sign up for commenting</strong></div>
+      <div class="col-lg-4"></div>
+    </div>
   <% end %>
 </div>

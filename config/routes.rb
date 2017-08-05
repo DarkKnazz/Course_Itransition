@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :posts, :only => [:index, :show, :update, :edit, :destroy]
   resources :categories, :only => [:create, :update, :edit, :destroy]
   get 'tags/:tag', to: 'posts#index', as: :tag
-  post 'clear', to: 'steps#clear', as: 'clear'
+  post 'update_step', to: 'steps#update_step', as: 'update_step'
   resources :steps do
     put :sort, on: :collection
   end

@@ -1,5 +1,4 @@
 var global_Counter=  1;
-
 $(document).ready(function(){
   if(document.getElementById("upload_widget_opener")){
     document.getElementById("upload_widget_opener").addEventListener("click", function() {
@@ -79,34 +78,33 @@ var ajax_Request = function(){
     if($( elements_Of_Step[i] ).hasClass( "text" )){
       var value_Text = elements_Of_Step[i].childNodes[1].value;
       temp += "<div class='row show_Text'>" +
-                "<div class='col-lg-1'></div>" +
-                  "<div class='col-lg-10'>" +
+                "<div class='col-lg-2'></div>" +
+                  "<div class='col-lg-8'>" +
                     value_Text +
                   "</div>" +
-                "<div class='col-lg-1'></div>" + "</div>";
+                "<div class='col-lg-2'></div>" + "</div>";
     }
     if($( elements_Of_Step[i] ).hasClass( "image" )){
       var value_Image = elements_Of_Step[i].childNodes[1].childNodes[0].attributes[0].value
       temp += "<div class='row show_Image'>" +
-                "<div class='col-lg-1'></div>" +
-                  "<div class='col-lg-10' style='text-align:center'>" +
+                "<div class='col-lg-2'></div>" +
+                  "<div class='col-lg-8' style='text-align:center'>" +
                     "<img src='" + value_Image + "' class='show_Inner_Image'>" +
                   "</div>" +
-                "<div class='col-lg-1'></div>" + "</div>";
+                "<div class='col-lg-2'></div>" + "</div>";
     }
 
     if($( elements_Of_Step[i] ).hasClass( "video" )){
-      var value_Video = elements_Of_Step[i].childNodes[1].value.split("v=")[1];
+      var value_Video = elements_Of_Step[i].childNodes[1].value.split("v=")[1].split("&")[0];
       temp += "<div class='row show_Video'>" +
-                "<div class='col-lg-1'></div>" +
-                  "<div class='col-lg-10'>" +
+                  "<div class='col-lg-12'>" +
                     "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + value_Video + "' frameborder='0' allowfullscreen></iframe>" +
                   "</div>" +
-                "<div class='col-lg-1'></div>" + "</div>";
+                "</div>";
     }
   }
   $.ajax({
-        url : "/clear",
+        url : "/update_step",
         type : "post",
         data : { data_value: temp,
                  id: id_Block },

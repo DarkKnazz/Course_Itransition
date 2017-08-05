@@ -19,7 +19,10 @@
         <div class="col-lg-3" style="text-align: center"><h3>Life_hacker</h3></div>
         <div class="col-lg-3">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder=<%= t('header.form.placeholder') %> aria-describedby="basic-addon1">
+            <input type="text" class="form-control" id="main_Search_Field" placeholder=<%= t('header.form.placeholder') %> aria-describedby="basic-addon1">
+            <span class="input-group-btn">
+              <button class="btn btn-secondary" type="button" onclick="searchPosts()">Go!</button>
+            </span>
           </div>
         </div>
         <div class="col-lg-1 a">

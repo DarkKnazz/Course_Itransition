@@ -2,6 +2,11 @@ function updateDiv(){
     window.location.reload();
 }
 
+function searchPosts(){
+  var value = document.getElementById("main_Search_Field").value;
+  document.location.href="/posts?val=" + value;
+}
+
 var f1 = function(){
       $('.btn-toggle').find('.btn').toggleClass('active');
 

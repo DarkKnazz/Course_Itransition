@@ -1,8 +1,8 @@
-<% @steps.each do |step| %>
+  <% @steps.each do |step| %>
     <%= step.content.html_safe %>
-<% end %>
+  <% end %>
 
-<div class="row" style="margin-top: 2%;align-items: center">
+<div class="row" style="margin-top: 2%;">
   <div class="col-lg-4"></div>
   <div class="col-lg-4">
     <%= will_paginate @steps, :page_links => false %>

@@ -26,20 +26,6 @@ class StepsController < ApplicationController
     end
   end
 
-  def update
-    @step.content = params[:data_value]
-    @step.save
-    respond_to do |format|
-      if @step
-        format.html { redirect_to edit_post_step_path(@step.id) }
-        format.json { render :show, data: @step.post.id }
-      else
-        format.html { render :edit }
-        format.json { render json: @step.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /steps/1
   # DELETE /steps/1.json
   def destroy
@@ -50,17 +36,18 @@ class StepsController < ApplicationController
     end
   end
 
-  def clear
+  def update_step
     @step = Step.find(params[:id])
     @step.content = params[:data_value]
     @step.save
   end
 
   def sort
-      params[:order].each do |key,value|
-        Step.find(value[:id]).update_attribute(:position,value[:position])
-      end
+    params[:order].each do |key,value|
+      Step.find(value[:id]).update_attribute(:position,value[:position])
     end
+  end
+
   private
 
     def set_step
@@ -69,6 +56,6 @@ class StepsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def step_params
-      params.require(:step).permit(:post_id, :name, :text, :image, :video)
+      params.require(:step).permit(:post_id, :name)
     end
 end
