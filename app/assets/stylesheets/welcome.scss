@@ -1,0 +1,54 @@
+#slider_1{
+  background-image: url("http://helenebrunet.com/wp-content/uploads/2014/04/Streets-Night-City-Lights.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#slider_2{
+  background-image: url("http://cdn.wallpapersafari.com/95/76/FYXMsE.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#slider_3{
+  background-image: url("http://s1.picswalls.com/wallpapers/2014/08/08/scotland-image_020713933_172.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.main_Page_Content {
+  width: 100%;
+  height:85vh;
+}
+
+.main_Page_Row {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.main_Page_Posts{
+  padding-left: 3%;
+  padding-right: 3%;
+  text-align: center;
+}
+
+.main_Page_Posts_Header{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background-color: white;
+  -webkit-box-shadow: 0 7px 6px -6px #777;
+   -moz-box-shadow: 0 7px 6px -6px #777;
+        box-shadow: 0 7px 6px -6px #777;
+  border: 1px solid lightgray;
+}
+
+.main_Page_Tag_Cloud{
+  background-color: white;
+  -webkit-box-shadow: 0 7px 6px -6px #777;
+   -moz-box-shadow: 0 7px 6px -6px #777;
+        box-shadow: 0 7px 6px -6px #777;
+  border: 1px solid lightgray;
+}

@@ -11,7 +11,6 @@ class Post < ApplicationRecord
     attributes :name, :preview
 		attributes comment: "comments.content"
 		attributes step: ["steps.content", "steps.name"]
-		attributes user: ["user.nickname"]
   end
 
 	def avg_rating_dimension(post)

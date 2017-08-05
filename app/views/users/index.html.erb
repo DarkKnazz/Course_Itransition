@@ -1,18 +1,18 @@
-<div style="padding-left: 10%; padding-right:10%">
-  <table class="table table-striped" style="text-align: center">
+<div style="padding-left: 15%; padding-right:15%">
+  <table class="table table-striped user_Edit_Table">
   <thead>
     <tr>
-      <th style="text-align: center">#</th>
-      <th style="text-align: center"><%= t('users.index.header.avatar') %></th>
-      <th style="text-align: center"><%= t('users.index.header.username') %></th>
-      <th style="text-align: center"><%= t('users.index.header.posts') %></th>
-      <th style="text-align: center"><%= t('users.index.header.email') %></th>
+      <th>#</th>
+      <th><%= t('users.index.header.avatar') %></th>
+      <th><%= t('users.index.header.username') %></th>
+      <th><%= t('users.index.header.posts') %></th>
+      <th><%= t('users.index.header.email') %></th>
     </tr>
   </thead>
   <tbody>
     <% @users.each_with_index do |user, index| %>
       <tr onclick="window.location.href='<%= user_path(user.id) %>'">
-    	<th scope="row" style="padding-top: 2%; text-align: center"><%= index %></th>
+    	<th scope="row" style="padding-top: 2%;"><%= index + 1 %></th>
     	<td><img src=<%= user.image %> width="50" height="50" style="border-radius: 50%"></td>
     	<td style="padding-top: 2%"><%= user.nickname %></td>
     	<td style="padding-top: 2%"><%= user.count_Posts %></td>
