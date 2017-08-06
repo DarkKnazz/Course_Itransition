@@ -47,8 +47,28 @@
 
 .main_Page_Tag_Cloud{
   background-color: white;
+  padding: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
   -webkit-box-shadow: 0 7px 6px -6px #777;
    -moz-box-shadow: 0 7px 6px -6px #777;
         box-shadow: 0 7px 6px -6px #777;
   border: 1px solid lightgray;
+}
+
+.main_Page_Tags_Header{
+  padding-top: 1%;
+  padding-bottom: 2%;
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+}
+
+#tag_cloud{
+  padding-top: 4%;
+}
+
+.btn-outline-danger{
+  margin-right: 5%;
+  white-space: normal;
 }

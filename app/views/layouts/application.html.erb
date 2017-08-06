@@ -119,18 +119,11 @@
               <%= t('footer.buttons.language') %>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <div class ="dropdown-item btn btn-secondary"><%= link_to_unless I18n.locale == :en, t('footer.buttons.english'), locale: :en %></div>
-              <div class ="dropdown-item btn btn-secondary"><%= link_to_unless I18n.locale == :ru, t('footer.buttons.russian'), locale: :ru %></div>
+              <div class ="dropdown-item btn btn-secondary btn-sm"><%= link_to_unless I18n.locale == :en, t('footer.buttons.english'), locale: :en %></div>
+              <div class ="dropdown-item btn btn-secondary btn-sm"><%= link_to_unless I18n.locale == :ru, t('footer.buttons.russian'), locale: :ru %></div>
             </div>
           </div>
         </div>
-        <div class="col-lg-2" style="text-align: center">
-          <div class="btn-group btn-toggle" onclick = "f1()">
-            <button class="btn btn-md btn-secondary">L</button>
-            <button class="btn btn-md btn-outline-success active">D</button>
-          </div>
-        </div>
-        <div class="col-lg-8"></div>
       </div>
     </div>
   </footer>

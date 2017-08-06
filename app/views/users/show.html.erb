@@ -38,7 +38,7 @@
       	  <tr onclick="window.location.href='<%= post_path(post.id) %>'">
             <th scope="row" style="text-align: center"><%= index + 1 %></th>
     	    	<td><%= post.name %></td>
-    				<td><%= post.updated_at %></td>
+    				<td><%= post.updated_at.strftime("%d.%m.%y, %H:%M") %></td>
           </tr>
 	    <% end %>
   	  </tbody>
