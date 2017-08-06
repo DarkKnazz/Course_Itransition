@@ -14,7 +14,7 @@
       <% end %>
     </div>
   </div>
-  
+
   <div class="posts_show_tags">
     <% @post.tags.each do |tag| %>
       <%= link_to tag, tag_path(tag.name), :class => "badge badge-pill badge-danger tags" %>
@@ -30,15 +30,15 @@
     </div>
     <div class="row" style="margin-top:2%">
       <div class="input-group">
-        <span class="input-group-addon">Comment</span>
+        <span class="input-group-addon"><%= t('posts.show.comment') %></span>
         <input id="input_Text" data-post-id=<%= @post.id %> data-user-id=<%= current_user.id %> type="text" data-behavior="post_speaker" class="form-control">
       </div>
     </div><br>
   <% else %>
     <div class="row" style="margin-top:2%;margin-bottom:2%">
       <div class="col-lg-3"></div>
-      <div class="col-lg-5"><strong>Sign in or sign up for commenting</strong></div>
-      <div class="col-lg-4"></div>
+      <div class="col-lg-6"><strong><%= t('posts.show.unable') %></strong></div>
+      <div class="col-lg-3"></div>
     </div>
   <% end %>
 </div>

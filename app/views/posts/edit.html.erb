@@ -8,7 +8,7 @@
           <%= f.text_field :name, :class => "form-control" %>
         </div>
         <button type="submit" class="btn btn-facebook edit_Post_Button"><%= t('posts.edit.update') %></button>
-        <%= button_to "Destroy", post_path(@post.id), method: :delete , :style =>"margin-bottom: 20%", :class => "btn btn-danger edit_Post_Button", data: { confirm: "Are you sure?"} %>
+        <%= button_to t('posts.edit.buttons.destroy'), post_path(@post.id), method: :delete , :style =>"margin-bottom: 20%", :class => "btn btn-danger edit_Post_Button", data: { confirm: "Are you sure?"} %>
       <% end %>
 
       <div style="text-align:center;"><%= t('posts.edit.form.create') %></div>
@@ -23,9 +23,9 @@
         </div>
         <button type="submit" class="btn btn-success" style="width:100%;margin-top:3%;"><%= t('posts.edit.form.button') %></button>
       <% end %>
-      <div style="font-weight:normal">
+      <div style="font-weight:normal; margin-top: 5%;">
         <%= link_to t('posts.edit.form.links.switch'), post_path(@post.id) %>
-        <button onclick="updateDiv()" class="btn btn-secondary">Refresh</button>
+        <button onclick="updateDiv()" class="btn btn-secondary"><%= t('posts.edit.buttons.refresh') %></button>
       </div>
     </div>
     <div class="col-lg-8" id="reloading">

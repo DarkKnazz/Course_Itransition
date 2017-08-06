@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row step_Edit_Header">
-    <div class="col-lg-2" style="font-size: 20px">Add a new:</div>
+    <div class="col-lg-2" style="font-size: 20px"><%= t('steps.edit.addNew') %></div>
     <div class="col-lg-4">
       <a class="btn btn-social-icon btn-success btn-md" onclick="create_New_Text()">
         <i class="fa fa-file-text" style="color: white"></i>
@@ -16,8 +16,8 @@
     <div class="col-lg-3">
       <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group mr-2" role="group" aria-label="First group">
-          <%= link_to "Destroy", post_step_path(@step.id), method: :delete, :class => "btn btn-danger"%>
-          <button type="button" class="btn btn-success edit_Step_Success" onclick="ajax_Request()" id="<%= @step.id %>Button">Save changes</button>
+          <%= link_to t('steps.edit.destroyButton'), post_step_path(@step.id), method: :delete, :class => "btn btn-danger"%>
+          <button type="button" class="btn btn-success edit_Step_Success" onclick="ajax_Request()" id="<%= @step.id %>Button"><%= t('steps.edit.saveButton') %></button>
         </div>
       </div>
     </div>
