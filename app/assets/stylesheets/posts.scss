@@ -11,6 +11,13 @@
 	-webkit-box-shadow: 0 7px 6px -6px #777;
 	 -moz-box-shadow: 0 7px 6px -6px #777;
 				box-shadow: 0 7px 6px -6px #777;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 100%;
+}
+
+.card-block{
+	text-overflow: ellipsis;
 }
 
 .body_Posts_Show{
