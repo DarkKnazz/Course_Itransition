@@ -14,6 +14,7 @@
 //= require jquery-sortable.js
 //= require html.sortable
 //= require jquery_ujs
+//= require awesomplete
 //= require main
 //= require steps_Edit
 //= require_tree .

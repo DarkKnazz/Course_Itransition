@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :steps do
     put :sort, on: :collection
   end
+  resources :posts do
+    get :autocomplete_category, :on => :collection
+  end
 
   mount ActionCable.server => '/cable'
   match '*path' => redirect('/'), via: :get

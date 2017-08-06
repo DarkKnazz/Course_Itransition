@@ -48,7 +48,11 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
   database: Course_Itransition_production
-  username: Course_Itransition
-  password: <%= ENV['COURSE_ITRANSITION_DATABASE_PASSWORD'] %>
+  username: root
+  password: 123456
+  allow_concurrency: true
+  pool: 5

@@ -12,3 +12,5 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( bootstrap/bootstrap-social.css )
 Rails.application.config.assets.precompile += %w( bootstrap/font-awesome.css )
 Rails.application.config.assets.precompile += %w( posts.css )
+Rails.application.config.assets.precompile += %w( awesomplete.js )
+Rails.application.config.assets.precompile += %w( awesomplete.css )

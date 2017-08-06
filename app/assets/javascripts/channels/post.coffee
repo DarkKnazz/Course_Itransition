@@ -15,7 +15,7 @@ jQuery ->
 
     $(document).on 'keypress', '[data-behavior~=post_speaker]', (event) ->
       if event.keyCode is 13
-        if event.target.value != ''
+        if event.target.value.trim() != ''
           App.post.speak event.target.value
           event.target.value = ''
           event.preventDefault()

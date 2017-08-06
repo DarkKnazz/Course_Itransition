@@ -17,15 +17,15 @@
 
 <div class="row">
   <div class="input-group">
-    <span class="input-group-addon">Category</span>
-    <%= f.text_field :category_id, :class => "form-control" %>
+    <span class="input-group-addon"><%= t('posts.form.tags') %></span>
+    <%= f.text_field :tag_list, :class => "form-control" %>
   </div>
 </div><br>
 
 <div class="row">
   <div class="input-group">
-    <span class="input-group-addon"><%= t('posts.form.tags') %></span>
-    <%= f.text_field :tag_list, :class => "form-control" %>
+    <span class="input-group-addon">Category</span>
+    <input class="awesomplete form-control" type="text" name="post[category_id]" id="post_category_id", data-list=<%= convertCategory(@categories) %>>
   </div>
 </div><br>
 
