@@ -1,4 +1,4 @@
-.header_Posts_Show{
+.header_posts_show{
 	padding-top: 1%;
 	padding-bottom: 1%;
 
@@ -20,7 +20,7 @@
 	text-overflow: ellipsis;
 }
 
-.body_Posts_Show{
+.body_posts_show{
 	margin-top: 2%;
 	margin-left: 20%;
 	margin-right: 20%;
@@ -33,13 +33,13 @@
 				box-shadow: 0 7px 6px -6px #777;
 }
 
-.post_Edit_Block{
+.post_edit_block{
 	margin-top:1%;
 	padding-left:10%;
 	padding-right:10%;
 }
 
-.edit_Post_Column{
+.edit_post_column{
 	font-size:20px;
 	font-weight: bold;
 	padding-top: 1%;
@@ -52,12 +52,12 @@
 				box-shadow: 0 7px 6px -6px #777;
 }
 
-.edit_Post_Button{
+.edit_post_button{
 	width: 100%;
 	margin-top:3%;
 }
 
-.posts_New_Body{
+.posts_new_body{
 	margin-left: 25%;
 	margin-right: 25%;
 	margin-top: 2%;
@@ -71,7 +71,7 @@
 				box-shadow: 0 7px 6px -6px #777;
 }
 
-.post_New_Header{
+.post_new_header{
 	padding-top:1%;
 	padding-bottom: 1%;
 	border-bottom: 1px solid lightgray;
@@ -96,7 +96,7 @@ tbody.example tr.placeholder:before {
   /** Define arrowhead **/
 }
 
-.show_Text{
+.show_text{
 	width: 90%;
 	padding-left: 2%;
 	padding-right: 2%;
@@ -106,18 +106,18 @@ tbody.example tr.placeholder:before {
 	font-size: 20px;
 }
 
-.show_Video{
+.show_video{
 	height: 350px;
 	padding-top: 2%;
 	padding-bottom: 2%;
 }
 
-.show_Image{
+.show_image{
 	padding-top: 2%;
 	padding-bottom: 2%;
 }
 
-.show_Inner_Image{
+.show_inner_image{
 	max-width: 100%;
 	max-height: 100%;
 }

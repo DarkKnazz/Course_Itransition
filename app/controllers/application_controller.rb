@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
-  before_action :set_Category
+  before_action :set_category
   rescue_from ActionView::MissingTemplate, :with => :template_not_found
   rescue_from ActiveRecord::RecordNotFound, :with => :template_not_found
 
@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     Rails.application.routes.default_url_options[:locale]= I18n.locale
   end
 
-  def set_Category
+  def set_category
     @category = Category.new
   end
 

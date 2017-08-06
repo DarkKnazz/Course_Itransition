@@ -88,12 +88,12 @@ table{
 	padding-bottom: 10%;
 }
 
-.avatar_Login{
+.avatar_login{
 	border-radius: 50%;
 	transition: box-shadow 0.6s;
 }
 
-.avatar_Login:hover{
+.avatar_login:hover{
 	box-shadow: 1px 1px 4px white;
 }
 
@@ -101,7 +101,7 @@ table{
 	margin-top: 6%;
 }
 
-.link_Header{
+.link_header{
 	color: white;
 	text-decoration:none;
 	font-size: 20px;
@@ -136,11 +136,11 @@ tr:hover{
 	text-decoration: none;
 }
 
-.img_Show{
+.img_show{
 	border-radius: 50%;
 }
 
-.header_Show{
+.header_show{
 	padding-top: 1%;
 	padding-bottom: 1%;
   padding-left: 2%;
@@ -150,18 +150,18 @@ tr:hover{
 	font-size: 25px;
 }
 
-.content_Show{
+.content_show{
 	font-size: 20px;
 }
 
-.body_Show{
+.body_show{
 	padding-top: 3%;
 	padding-bottom: 3%;
   padding-left: 3%;
   padding-right: 3%;
 }
 
-.header_Edit{
+.header_edit{
 	padding-top: 2%;
 	padding-bottom: 2%;
 	font-size: 20px;

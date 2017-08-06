@@ -1,6 +1,6 @@
 jQuery ->
-  if `$("#input_Text").data("postId")`
-    App.post = App.cable.subscriptions.create {channel: "PostChannel", id: `$("#input_Text").data("postId")`},
+  if `$('#input_text').data('postId')`
+    App.post = App.cable.subscriptions.create {channel: 'PostChannel', id: `$('#input_text').data('postId')`},
       connected: ->
         # Called when the subscription is ready for use on the server
 
@@ -11,7 +11,7 @@ jQuery ->
         $('#comments').append data['comment']
 
       speak: (comment) ->
-        @perform 'speak', comment: comment, post: `$("#input_Text").data("postId")`, user: `$("#input_Text").data("userId")`
+        @perform 'speak', comment: comment, post: `$('#input_text').data('postId')`, user: `$('#input_text').data('userId')`
 
     $(document).on 'keypress', '[data-behavior~=post_speaker]', (event) ->
       if event.keyCode is 13

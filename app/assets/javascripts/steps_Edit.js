@@ -1,100 +1,100 @@
-var global_Counter=  1;
+var global_counter=  1;
 $(document).ready(function(){
   if(document.getElementById("upload_widget_opener")){
     document.getElementById("upload_widget_opener").addEventListener("click", function() {
       cloudinary.openUploadWidget({ cloud_name: 'dgyxtx2pm', upload_preset: 'acjwzy3r'},
-        function(error, result) { console.log(result[0].secure_url);create_New_Image(result[0].secure_url) });
+        function(error, result) { console.log(result[0].secure_url);create_new_image(result[0].secure_url) });
     }, false);
   }
 });
 
 $(function  () {
-  $("ol.drag_List").sortable({ containment: "parent" });
+  $("ol.drag_list").sortable({ containment: "parent" });
 });
 
-var create_New_Text = function(){
-  var list_Body = document.getElementById("main_Block");
-  var list_Child = $("<li class='ui-sortable-handle'></li>");
-  var child_Body = $("<div class='row block text'></div>");
-  var child_Header = $('<div class="block_Text_Field">Text</div>');
-  var textarea = $('<textarea class="form-control block_Text_Area" rows="3"></textarea>');
+var create_new_text = function(){
+  var list_body = document.getElementById("main_block");
+  var list_child = $("<li class='ui-sortable-handle'></li>");
+  var child_body = $("<div class='row block text'></div>");
+  var child_header = $('<div class="block_text_field">Text</div>');
+  var textarea = $('<textarea class="form-control block_text_area" rows="3"></textarea>');
   var button = $('<button class="btn btn-danger">Destroy</button>');
 
-  $(list_Child).attr("id", global_Counter);
-  $(button).attr("id", global_Counter + "_button");
-  $(button).attr("onclick", "delete_Function(id)");
+  $(list_child).attr("id", global_counter);
+  $(button).attr("id", global_counter + "_button");
+  $(button).attr("onclick", "delete_function(id)");
 
-  $(child_Body).append(child_Header, textarea, button);
-  $(list_Child).append(child_Body);
-  $(list_Body).append(list_Child);
-  global_Counter++;
+  $(child_body).append(child_header, textarea, button);
+  $(list_child).append(child_body);
+  $(list_body).append(list_child);
+  global_counter++;
 }
 
-var create_New_Image = function(value){
-  var list_Body = document.getElementById("main_Block");
-  var list_Child = $("<li class='ui-sortable-handle'></li>");
-  var child_Body = $("<div class='row block image'></div>");
-  var child_Header = $('<div class="block_Text_Field">Image</div>');
-  var image_Body = $("<div class='block_Image'></div>");
-  var image_Block = $('<img>');
+var create_new_image = function(value){
+  var list_body = document.getElementById("main_block");
+  var list_child = $("<li class='ui-sortable-handle'></li>");
+  var child_body = $("<div class='row block image'></div>");
+  var child_header = $('<div class="block_text_field">Image</div>');
+  var image_body = $("<div class='block_image'></div>");
+  var image_block = $('<img>');
   var button = $('<button class="btn btn-danger">Destroy</button>');
 
-  $(list_Child).attr("id", global_Counter);
-  $(button).attr("id", global_Counter + "_button");
-  $(button).attr("onclick", "delete_Function(id)");
-  $(image_Block).attr("src", value);
+  $(list_child).attr("id", global_counter);
+  $(button).attr("id", global_counter + "_button");
+  $(button).attr("onclick", "delete_function(id)");
+  $(image_block).attr("src", value);
 
-  $(image_Body).append(image_Block);
-  $(child_Body).append(child_Header, image_Body, button);
-  $(list_Child).append(child_Body);
-  $(list_Body).append(list_Child);
+  $(image_body).append(image_block);
+  $(child_body).append(child_header, image_body, button);
+  $(list_child).append(child_body);
+  $(list_body).append(list_child);
 
-  global_Counter++;
+  global_counter++;
 }
 
-var create_New_Video = function(){
-  var list_Body = document.getElementById("main_Block");
-  var list_Child = $("<li class='ui-sortable-handle'></li>");
-  var child_Body = $("<div class='row block video'></div>");
-  var child_Header = $('<div class="block_Text_Field">Video</div>');
-  var textarea = $('<input type="text" placeholder="Your link" class="form-control block_Text_Area">');
+var create_new_video = function(){
+  var list_body = document.getElementById("main_block");
+  var list_child = $("<li class='ui-sortable-handle'></li>");
+  var child_body = $("<div class='row block video'></div>");
+  var child_header = $('<div class="block_text_field">Video</div>');
+  var textarea = $('<input type="text" placeholder="Your link" class="form-control block_text_area">');
   var button = $('<button class="btn btn-danger">Destroy</button>');
 
-  $(list_Child).attr("id", global_Counter);
-  $(button).attr("id", global_Counter + "_button");
-  $(button).attr("onclick", "delete_Function(id)");
+  $(list_child).attr("id", global_counter);
+  $(button).attr("id", global_counter + "_button");
+  $(button).attr("onclick", "delete_function(id)");
 
-  $(child_Body).append(child_Header, textarea, button);
-  $(list_Child).append(child_Body);
-  $(list_Body).append(list_Child);
-  global_Counter++;
+  $(child_body).append(child_header, textarea, button);
+  $(list_child).append(child_body);
+  $(list_body).append(list_child);
+  global_counter++;
 }
 
-var ajax_Request = function(){
+var ajax_request = function(){
   var temp = "";
-  var elements_Of_Step = document.getElementsByClassName("block");
-  var id_Block = document.getElementsByClassName("edit_Step_Success")[0].attributes[3].value.split("B")[0];
-  for(var i = 0; i < elements_Of_Step.length; i++){
-    if($( elements_Of_Step[i] ).hasClass( "text" )){
-      var value_Text = elements_Of_Step[i].childNodes[1].value;
-      temp += "<div class='row show_Text'>" +
+  var elements_of_step = document.getElementsByClassName("block");
+  var id_block = document.getElementsByClassName("edit_step_success")[0].attributes[3].value.split("B")[0];
+  for(var i = 0; i < elements_of_step.length; i++){
+    if($( elements_of_step[i] ).hasClass( "text" )){
+      var value_text = elements_of_step[i].childNodes[1].value;
+      temp += "<div class='row show_text'>" +
                   "<div class='col-lg-12'>" +
-                    value_Text +
+                    value_text +
                   "</div>" + "</div>";
     }
-    if($( elements_Of_Step[i] ).hasClass( "image" )){
-      var value_Image = elements_Of_Step[i].childNodes[1].childNodes[0].attributes[0].value
-      temp += "<div class='row show_Image'>" +
+    if($( elements_of_step[i] ).hasClass( "image" )){
+      var value_image = elements_of_step[i].childNodes[1].childNodes[0].attributes[0].value
+      temp += "<div class='row show_image'>" +
                   "<div class='col-lg-12' style='text-align:center'>" +
-                    "<img src='" + value_Image + "' class='show_Inner_Image'>" +
+                    "<img src='" + value_image + "' class='show_inner_image'>" +
                   "</div>" + "</div>";
     }
 
-    if($( elements_Of_Step[i] ).hasClass( "video" )){
-      var value_Video = elements_Of_Step[i].childNodes[1].value.split("v=")[1].split("&")[0];
-      temp += "<div class='row show_Video'>" +
+    if($( elements_of_step[i] ).hasClass( "video" )){
+      var value_video = elements_of_step[i].childNodes[1].value.split("v=")[1].split("&")[0];
+      temp += "<div class='row show_video'>" +
                   "<div class='col-lg-12'>" +
-                    "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + value_Video + "' frameborder='0' allowfullscreen></iframe>" +
+                    "<iframe width='100%' height='100%' src='https://www.youtube.com/embed/" + value_video + "' frameborder='0' allowfullscreen></iframe>" +
                   "</div>" +
                 "</div>";
     }
@@ -103,20 +103,20 @@ var ajax_Request = function(){
         url : "/update_step",
         type : "post",
         data : { data_value: temp,
-                 id: id_Block },
+                 id: id_block },
         success: function(){
           var title = document.location.href;
           var post_id = title.split("/")[4];
-          var edit_Post_Title = "/posts/" + post_id + "/edit";
-          document.location.href = edit_Post_Title;
+          var edit_post_title = "/posts/" + post_id + "/edit";
+          document.location.href = edit_post_title;
         }
     });
 }
 
 
 
-var delete_Function = function(id){
-  var delete_Id = "#"+ id.split("_")[0];
-  $(delete_Id).fadeOut(500);
+var delete_function = function(id){
+  var delete_id = "#"+ id.split("_")[0];
+  $(delete_id).fadeOut(500);
   setTimeout(function(){$(delete_Id).remove();}, 1000);
 }

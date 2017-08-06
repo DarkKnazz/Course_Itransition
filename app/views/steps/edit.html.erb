@@ -1,14 +1,14 @@
 <div class="container-fluid">
-  <div class="row step_Edit_Header">
+  <div class="row step_edit_header">
     <div class="col-lg-2" style="font-size: 20px"><%= t('steps.edit.addNew') %></div>
     <div class="col-lg-4">
-      <a class="btn btn-social-icon btn-success btn-md" onclick="create_New_Text()">
+      <a class="btn btn-social-icon btn-success btn-md" onclick="create_new_text()">
         <i class="fa fa-file-text" style="color: white"></i>
       </a>
       <a class="btn btn-social-icon btn-success btn-md" id="upload_widget_opener">
         <i class="fa fa-picture-o" style="color: white"></i>
       </a>
-      <a class="btn btn-social-icon btn-success btn-md" onclick="create_New_Video()">
+      <a class="btn btn-social-icon btn-success btn-md" onclick="create_new_video()">
         <i class="fa fa-video-camera" style="color: white"></i>
       </a>
     </div>
@@ -17,12 +17,12 @@
       <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group mr-2" role="group" aria-label="First group">
           <%= link_to t('steps.edit.destroyButton'), post_step_path(@step.id), method: :delete, :class => "btn btn-danger"%>
-          <button type="button" class="btn btn-success edit_Step_Success" onclick="ajax_Request()" id="<%= @step.id %>Button"><%= t('steps.edit.saveButton') %></button>
+          <button type="button" class="btn btn-success edit_step_success" onclick="ajax_request()" id="<%= @step.id %>Button"><%= t('steps.edit.saveButton') %></button>
         </div>
       </div>
     </div>
   </div>
 </div>
-<ol id="main_Block" class="drag_List">
+<ol id="main_block" class="drag_list">
 </ol>
 <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>

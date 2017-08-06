@@ -21,22 +21,22 @@
         <div class="col-lg-3" style="text-align: center" onclick='window.location.href = "/"'><h3>Life_hacker</h3></div>
         <div class="col-lg-3">
           <div class="input-group">
-            <input type="text" class="form-control" id="main_Search_Field" placeholder=<%= t('header.form.placeholder') %> aria-describedby="basic-addon1">
+            <input type="text" class="form-control" id="main_search_field" placeholder=<%= t('header.form.placeholder') %> aria-describedby="basic-addon1">
             <span class="input-group-btn">
               <button class="btn btn-secondary" type="button" onclick="searchPosts()">Go!</button>
             </span>
           </div>
         </div>
         <div class="col-lg-1 a">
-          <%= link_to t('header.links.users'), users_path, :class => "link_Header"%>
+          <%= link_to t('header.links.users'), users_path, :class => "link_header"%>
         </div>
         <div class="col-lg-3 a">
-          <%= link_to t('header.links.posts'), posts_path, :class => "link_Header"%>
+          <%= link_to t('header.links.posts'), posts_path, :class => "link_header"%>
         </div>
         <% if user_signed_in? %>
         <div class="col-lg-2 login">
           <div class="dropdown">
-            <img src=<%= current_user.image%> width="40" height="40" class="avatar_Login dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src=<%= current_user.image%> width="40" height="40" class="avatar_login dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton" style="color:#400627">
             <div class = "dropdown-item" style="color:#400627; border-bottom: 2px solid #400627;"><%= current_user.nickname %></div>
             <% if current_user.isAdmin %>

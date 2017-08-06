@@ -9,8 +9,8 @@
 
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane fade active show" id="profile">
-    <div class="container-fluid user_Edit_Tab">
-	  <div class="row header_Edit">
+    <div class="container-fluid user_edit_tab">
+	  <div class="row header_edit">
 		<%= t('users.edit.editing') %> <%= @user.nickname %>
 	  </div>
 	  <%= render 'form', user: @user %>
@@ -18,7 +18,7 @@
   </div>
   <div role="tabpanel" class="tab-pane fade" id="buzz">
 	<div style="padding-left: 15%; padding-right:15%">
-  	  <table class="table table-striped user_Edit_Table" style="text-align: center;background-color:white;">
+  	  <table class="table table-striped user_edit_table" style="text-align: center;background-color:white;">
   	  <thead>
       <tr>
         <th style="text-align: center">#</th>

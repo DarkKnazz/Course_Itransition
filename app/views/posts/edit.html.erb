@@ -1,14 +1,14 @@
 <div class="container-fluid">
-  <div class="row post_Edit_Block">
-    <div class="col-lg-4 edit_Post_Column">
+  <div class="row post_edit_block">
+    <div class="col-lg-4 edit_post_column">
       <div style="text-align:center;"><%= t('posts.edit.header') %></div>
       <%= form_for(@post) do |f| %>
         <div class="input-group">
           <span class="input-group-addon"><%= t('posts.edit.name') %></span>
           <%= f.text_field :name, :class => "form-control" %>
         </div>
-        <button type="submit" class="btn btn-facebook edit_Post_Button"><%= t('posts.edit.update') %></button>
-        <%= button_to t('posts.edit.buttons.destroy'), post_path(@post.id), method: :delete , :style =>"margin-bottom: 20%", :class => "btn btn-danger edit_Post_Button", data: { confirm: "Are you sure?"} %>
+        <button type="submit" class="btn btn-facebook edit_post_button"><%= t('posts.edit.update') %></button>
+        <%= button_to t('posts.edit.buttons.destroy'), post_path(@post.id), method: :delete , :style =>"margin-bottom: 20%", :class => "btn btn-danger edit_post_button", data: { confirm: "Are you sure?"} %>
       <% end %>
 
       <div style="text-align:center;"><%= t('posts.edit.form.create') %></div>
@@ -30,7 +30,7 @@
     </div>
     <div class="col-lg-8" id="reloading">
       <div>
-        <table class="table table-striped users_Index_Table" style="text-align: center;background-color:white">
+        <table class="table table-striped users_index_table" style="text-align: center;background-color:white">
         <thead>
           <tr>
             <th style="text-align: center">#</th>
@@ -38,9 +38,9 @@
             <th style="text-align: center"><%= t('posts.edit.table.update') %></th>
           </tr>
         </thead>
-        <tbody id="steps_List">
+        <tbody id="steps_list">
           <% @steps.each_with_index do |step, index| %>
-            <tr class="list_Item" data-id = "<%= step.id %>" onclick="window.location.href='<%= edit_post_step_path(id: step.id, post_id: step.post.id) %>'">
+            <tr class="list_item" data-id = "<%= step.id %>" onclick="window.location.href='<%= edit_post_step_path(id: step.id, post_id: step.post.id) %>'">
               <th scope="row" style="text-align: center"><%= index + 1 %></th>
               <td><%= step.name %></td>
               <td><%= step.updated_at.strftime("%d.%m.%y, %H:%M") %></td>

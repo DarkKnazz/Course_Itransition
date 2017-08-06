@@ -1,5 +1,5 @@
-<div class="container-fluid body_Posts_Show">
-  <div class="row header_Posts_Show">
+<div class="container-fluid body_posts_show">
+  <div class="row header_posts_show">
     <div class="col-lg-6">
       <%= @post.name %>
     </div>
@@ -21,7 +21,7 @@
     <% end %>
   </div>
 
-  <div id="steps_List_Show">
+  <div id="steps_list_show">
     <%= render 'steps_List_Show' %>
   </div>
   <% if user_signed_in? %>
@@ -31,7 +31,7 @@
     <div class="row" style="margin-top:2%">
       <div class="input-group">
         <span class="input-group-addon"><%= t('posts.show.comment') %></span>
-        <input id="input_Text" data-post-id=<%= @post.id %> data-user-id=<%= current_user.id %> type="text" data-behavior="post_speaker" class="form-control">
+        <input id="input_text" data-post-id=<%= @post.id %> data-user-id=<%= current_user.id %> type="text" data-behavior="post_speaker" class="form-control">
       </div>
     </div><br>
   <% else %>

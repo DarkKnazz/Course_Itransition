@@ -23,10 +23,10 @@ class User < ApplicationRecord
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
 	user.provider = auth.provider
 	user.uid = auth.uid
-	user.email = auth.info.first_name + "_" + auth.info.last_name + "@vk.com"
+	user.email = auth.info.first_name + '_' + auth.info.last_name + '@vk.com'
 	user.password = Devise.friendly_token[0,20]
 	user.image = auth.info.image
-	user.nickname = auth.info.first_name + " " + auth.info.last_name
+	user.nickname = auth.info.first_name + ' ' + auth.info.last_name
 	user.save
   end
 end
@@ -35,7 +35,7 @@ def self.twitter_from_omniauth(auth)
   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
 	user.provider = auth.provider
 	user.uid = auth.uid
-	user.email = auth.info.name + "@twitter.com";
+	user.email = auth.info.name + '@twitter.com';
 	user.password = Devise.friendly_token[0,20]
 	user.image = auth.info.image
 	user.nickname = auth.info.name

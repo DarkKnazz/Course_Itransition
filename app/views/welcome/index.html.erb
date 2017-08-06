@@ -35,11 +35,11 @@
   </div>
 </div>
 
-<div class="container-fluid main_Page_Content">
-  <div class="row main_Page_Row" style="margin-top: 2%">
-    <div class="col-lg-8 main_Page_Posts">
-      <div class="main_Page_Posts_Header"><strong><%= t('root.latest') %></strong></div>
-      <table class="table table-striped user_Edit_Table" style="border: 1px solid lightgray">
+<div class="container-fluid main_page_content">
+  <div class="row main_page_row" style="margin-top: 2%">
+    <div class="col-lg-8 main_page_posts">
+      <div class="main_page_posts_header"><strong><%= t('root.latest') %></strong></div>
+      <table class="table table-striped user_edit_table" style="border: 1px solid lightgray">
       <thead>
       <tr>
         <th style="text-align: center">#</th>
@@ -58,7 +58,7 @@
       </tbody>
     </table>
     </div>
-    <div class="col-lg-4 main_Page_Tag_Cloud">
+    <div class="col-lg-4 main_page_tag_cloud">
       <div style='text-align:center;'><strong><%= t('root.tags') %></strong></div>
       <div id='tag_cloud'>
         <% tag_cloud Post.tag_counts, %w{s m l} do |tag, css_class| %>

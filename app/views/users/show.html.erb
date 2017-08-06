@@ -1,19 +1,19 @@
-<div class="container-fluid user_Show_Body">
-	<div class="row header_Show">
+<div class="container-fluid user_show_body">
+	<div class="row header_show">
 		<div class="col-lg-6">
 			<%= t('users.show.profile') %>   <%= @user.nickname %>
 		</div>
-		<div class="col-lg-6 show_Header_Link">
+		<div class="col-lg-6 show_header_link">
 			<% if current_user && (@user.id == current_user.id || current_user.isAdmin) %>
 				<%= link_to t('users.show.edit'), edit_user_path(@user.id), :class => "btn btn-secondary" %>
 			<% end %>
 		</div>
 	</div>
-	<div class="row body_Show">
+	<div class="row body_show">
 		<div class="col-lg-2">
 			<img src=<%= @user.image %> class="img-fluid img_Show" width="150">
 		</div>
-		<div class="col-lg-10 content_Show">
+		<div class="col-lg-10 content_show">
 			<div>
 			  <a class="btn btn-social-icon btn-lg ">
 			    <i class="fa fa-envelope"></i>
