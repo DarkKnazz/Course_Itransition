@@ -78,20 +78,16 @@ var ajax_Request = function(){
     if($( elements_Of_Step[i] ).hasClass( "text" )){
       var value_Text = elements_Of_Step[i].childNodes[1].value;
       temp += "<div class='row show_Text'>" +
-                "<div class='col-lg-2'></div>" +
-                  "<div class='col-lg-8'>" +
+                  "<div class='col-lg-12'>" +
                     value_Text +
-                  "</div>" +
-                "<div class='col-lg-2'></div>" + "</div>";
+                  "</div>" + "</div>";
     }
     if($( elements_Of_Step[i] ).hasClass( "image" )){
       var value_Image = elements_Of_Step[i].childNodes[1].childNodes[0].attributes[0].value
       temp += "<div class='row show_Image'>" +
-                "<div class='col-lg-2'></div>" +
-                  "<div class='col-lg-8' style='text-align:center'>" +
+                  "<div class='col-lg-12' style='text-align:center'>" +
                     "<img src='" + value_Image + "' class='show_Inner_Image'>" +
-                  "</div>" +
-                "<div class='col-lg-2'></div>" + "</div>";
+                  "</div>" + "</div>";
     }
 
     if($( elements_Of_Step[i] ).hasClass( "video" )){

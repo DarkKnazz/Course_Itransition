@@ -91,7 +91,8 @@ tbody.example tr.placeholder:before {
 
 .show_Text{
 	width: 90%;
-	padding-left: 5%;
+	padding-left: 2%;
+	padding-right: 2%;
 	padding-top: 2%;
 	padding-bottom: 2%;
 	word-wrap:break-word;
@@ -171,4 +172,14 @@ tbody.example tr.placeholder:before {
 .awesomplete{
 	width: 100%;
 	border-radius: 5px;
+}
+
+.posts_show_tags{
+	padding-top:1%;
+	padding-bottom: 1%;
+}
+
+.posts_show_step_header{
+	padding-left: 5%;
+	font-size: 20px;
 }

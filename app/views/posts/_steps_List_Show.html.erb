@@ -1,4 +1,5 @@
   <% @steps.each do |step| %>
+    <strong class="posts_show_step_header"><%= step.name %></strong>
     <%= step.content.html_safe %>
   <% end %>
 

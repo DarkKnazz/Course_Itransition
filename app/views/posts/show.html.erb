@@ -14,10 +14,12 @@
       <% end %>
     </div>
   </div>
-
-  <% @post.tags.each do |tag| %>
-    <%= link_to tag, tag_path(tag.name), :class => "badge badge-pill badge-danger tags" %>
-  <% end %>
+  
+  <div class="posts_show_tags">
+    <% @post.tags.each do |tag| %>
+      <%= link_to tag, tag_path(tag.name), :class => "badge badge-pill badge-danger tags" %>
+    <% end %>
+  </div>
 
   <div id="steps_List_Show">
     <%= render 'steps_List_Show' %>
