@@ -52,11 +52,11 @@ en:
     new:
       name: "New Post"
     form:
-      name: "Name"
+      name: "Name*"
       preview: "Preview"
       tags: "Tags"
       button: "Create Post"
-      category: "Category"
+      category: "Category*"
     edit:
       header: "Edit post"
       name: "Name"

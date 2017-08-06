@@ -18,7 +18,7 @@
   <body>
     <div class="container-fluid header">
       <div class="row">
-        <div class="col-lg-3" style="text-align: center" onclick='window.location.href = "/"'><h3>Life_hacker</h3></div>
+        <div class="col-lg-3 align_class" onclick='window.location.href = "/"'><h3>Life_hacker</h3></div>
         <div class="col-lg-3">
           <div class="input-group">
             <input type="text" class="form-control" id="main_search_field" placeholder=<%= t('header.form.placeholder') %> aria-describedby="basic-addon1">
@@ -34,65 +34,64 @@
           <%= link_to t('header.links.posts'), posts_path, :class => "link_header"%>
         </div>
         <% if user_signed_in? %>
-        <div class="col-lg-2 login">
-          <div class="dropdown">
-            <img src=<%= current_user.image%> width="40" height="40" class="avatar_login dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton" style="color:#400627">
-            <div class = "dropdown-item" style="color:#400627; border-bottom: 2px solid #400627;"><%= current_user.nickname %></div>
-            <% if current_user.isAdmin %>
-              <div class = "dropdown-item" data-toggle="modal" data-target=".category_Create">Create category</div>
-            <% end %>
-            <%= link_to t('header.profile.create'), new_post_path, :class => "dropdown-item", :style =>"color:#400627;"%>
-            <%= link_to t('header.profile.edit'), edit_user_path(current_user.id), :class => "dropdown-item", :style =>"color:#400627;"%>
-            <%= link_to t('header.profile.logout'), destroy_user_session_path, method: :delete, :class => "dropdown-item", :style =>"color:#400627;"%>
+          <div class="col-lg-2 login">
+            <div class="dropdown">
+              <img src=<%= current_user.image%> class="avatar_login dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <div class="dropdown-menu dropdown-menu-left menu" aria-labelledby="dropdownMenuButton">
+                <div class = "dropdown-item menu_nickname"><%= current_user.nickname %></div>
+                <% if current_user.isAdmin %>
+                  <div class = "dropdown-item" data-toggle="modal" data-target=".category_Create">Create category</div>
+                <% end %>
+                <%= link_to t('header.profile.create'), new_post_path, :class => "dropdown-item menu" %>
+                <%= link_to t('header.profile.edit'), edit_user_path(current_user.id), :class => "dropdown-item menu" %>
+                <%= link_to t('header.profile.logout'), destroy_user_session_path, method: :delete, :class => "dropdown-item menu" %>
+              </div>
             </div>
-        </div>
-        </div>
+          </div>
         <% else %>
-        <div class="col-lg-2 login">
-          <div data-toggle="modal" data-target=".bd-example-modal-sm"><%=t ('header.links.login') %></div>
-        </div>
+          <div class="col-lg-2 login">
+            <div data-toggle="modal" data-target=".bd-example-modal-sm"><%=t ('header.links.login') %></div>
+          </div>
         <% end %>
       </div>
     </div>
 
-  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
 
-      <div class="modal-content" style="text-align: left; padding: 1%;">
+      <div class="modal-content login_modal_body">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"><%= t('header.modal.login') %></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+          <h5 class="modal-title" id="exampleModalLabel"><%= t('header.modal.login') %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <div class="modal-body">
           <a class="btn btn-social-icon btn-lg btn-facebook" href="/users/auth/facebook">
             <i class="fa fa-facebook"></i>
-            </a>
-            <a class="btn btn-social-icon btn-lg btn-vk" href="/users/auth/vkontakte">
+          </a>
+          <a class="btn btn-social-icon btn-lg btn-vk" href="/users/auth/vkontakte">
             <i class="fa fa-vk"></i>
-            </a>
-            <a class="btn btn-social-icon btn-lg btn-twitter" href="/users/auth/twitter">
+          </a>
+          <a class="btn btn-social-icon btn-lg btn-twitter" href="/users/auth/twitter">
             <i class="fa fa-twitter"></i>
-            </a>
-            <a class="btn btn-social-icon btn-lg btn-google" href="/users/auth/google_oauth2">
+          </a>
+          <a class="btn btn-social-icon btn-lg btn-google" href="/users/auth/google_oauth2">
             <i class="fa fa-google"></i>
-            </a>
+          </a>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('header.modal.button') %></button>
-          </div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= t('header.modal.button') %></button>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="modal fade bd-example-modal-md category_Create" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm">
-
-      <div class="modal-content" style="text-align: left; padding-top: 0%; width: 300px; padding-left: 3%;padding-right: 3%;">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content modal_category">
         <div class="modal-body">
-            <%= form_for(@category) do |f| %><br>
+          <%= form_for(@category) do |f| %><br>
             <div class="row">
               <div class="input-group">
                 <span class="input-group-addon"><%= t('posts.form.name') %></span>
@@ -100,16 +99,15 @@
               </div>
             </div><br>
 
-          <div class="row" style="padding-left: 15%">
-            <button type="submit" class="btn btn-secondary" style="width: 70%">Create category</button>
-          </div><br>
+            <div class="row modal_category_row">
+              <button type="submit" class="btn btn-secondary modal_category_button">Create category</button>
+            </div><br>
           <% end %>
         </div>
       </div>
     </div>
   </div>
   <%= yield %>
-
   <footer class="footer">
     <div class="container">
       <div class="row">
@@ -124,15 +122,9 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-2" style="text-align: center">
-          <div class="btn-group btn-toggle" onclick = "f1()">
-            <button class="btn btn-md btn-secondary">L</button>
-            <button class="btn btn-md btn-outline-success active">D</button>
-          </div>
-        </div>
-        <div class="col-lg-8"></div>
+        <div class="col-lg-10"></div>
       </div>
     </div>
   </footer>
-  </body>
+</body>
 </html

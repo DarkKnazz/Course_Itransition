@@ -1,9 +1,9 @@
-<div class="row" style="display:flex;justify-content: flex-start;">
+<div class="row post_partial_main">
   <% @posts.each do |post| %>
     <div class="col-lg-4">
-        <div class="card" style="height: 200px;display:block;margin-bottom: 160px" onclick="window.location.href='<%= post_path(post.id) %>'">
-          <img class="card-img-top" src=<%= post.preview %> alt="Card image cap" style="height:100%;width:100%">
-          <div class="card-block" style="border:1px solid lightgray; background-color: white;">
+        <div class="card post_partial_card" onclick="window.location.href='<%= post_path(post.id) %>'">
+          <img class="card-img-top post_partial_image" src=<%= post.preview %> alt="Card image cap">
+          <div class="card-block">
             <h4 class="card-title"><%= post.name[0..20] %></h4>
             <p class="card-text">
               <div class="badge badge-pill badge-warning tags"><%= post.category.name %></div>

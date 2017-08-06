@@ -1,23 +1,23 @@
 <div class="container-fluid">
-  <div class="row" style="min-width: 100%; height:84vh;">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="min-width: 100%; min-height: 100%">
+  <div class="row slider_main">
+    <div id="carouselExampleIndicators" class="carousel slide slider_carousel" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active" style="width: 100%; height:84vh;" id="slider_1">
+        <div class="carousel-item slider_item active" id="slider_1">
           <div class="carousel-caption d-none d-md-block">
             <h3><%= t('root.slider.img1') %></h3>
           </div>
         </div>
-        <div class="carousel-item" style="width: 100%; height:84vh;" id="slider_2">
+        <div class="carousel-item slider_item" id="slider_2">
           <div class="carousel-caption d-none d-md-block">
             <h3><%= t('root.slider.img2') %></h3>
           </div>
         </div>
-        <div class="carousel-item" style="width: 100%; height:84vh;" id="slider_3">
+        <div class="carousel-item slider_item" id="slider_3">
           <div class="carousel-caption d-none d-md-block">
             <h3><%= t('root.slider.img3') %></h3>
           </div>
@@ -36,33 +36,33 @@
 </div>
 
 <div class="container-fluid main_page_content">
-  <div class="row main_page_row" style="margin-top: 2%">
+  <div class="row main_page_row">
     <div class="col-lg-8 main_page_posts">
       <div class="main_page_posts_header"><strong><%= t('root.latest') %></strong></div>
-      <table class="table table-striped user_edit_table" style="border: 1px solid lightgray">
-      <thead>
-      <tr>
-        <th style="text-align: center">#</th>
-        <th style="text-align: center"><%= t('posts.table.name') %></th>
-        <th style="text-align: center"><%= t('posts.table.update') %></th>
-      </tr>
-      </thead>
-      <tbody>
-        <% @posts.each_with_index do |post, index| %>
-          <tr onclick="window.location.href='<%= post_path(post.id) %>'">
-            <th scope="row" style="text-align: center"><%= index + 1 %></th>
-            <td><%= post.name %></td>
-            <td><%= post.updated_at.strftime("%d.%m.%y, %H:%M") %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+        <table class="table table-striped user_edit_table">
+          <thead>
+            <tr>
+              <th style="text-align: center">#</th>
+              <th style="text-align: center"><%= t('posts.table.name') %></th>
+              <th style="text-align: center"><%= t('posts.table.update') %></th>
+            </tr>
+          </thead>
+        <tbody>
+          <% @posts.each_with_index do |post, index| %>
+            <tr onclick="window.location.href='<%= post_path(post.id) %>'">
+              <th scope="row align_class"><%= index + 1 %></th>
+              <td><%= post.name %></td>
+              <td><%= post.updated_at.strftime("%d.%m.%y, %H:%M") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
     <div class="col-lg-4 main_page_tag_cloud">
-      <div style='text-align:center;'><strong><%= t('root.tags') %></strong></div>
+      <div class="align_class"><strong><%= t('root.tags') %></strong></div>
       <div id='tag_cloud'>
         <% tag_cloud Post.tag_counts, %w{s m l} do |tag, css_class| %>
-          <%= link_to tag.name, tag_path(tag.name), class: "btn btn-sm btn-outline-danger tags" %>
+          <%= link_to tag.name, tag_path(tag.name), class: "btn btn-sm btn-outline-danger tags tag_cloud_item" %>
         <% end %>
       </div>
     </div>

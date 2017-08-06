@@ -7,6 +7,22 @@
 	border-bottom: 1px solid lightgray;
 }
 
+.post_partial_main{
+	display:flex;
+	justify-content: flex-start;
+}
+
+.post_partial_card{
+	height: 200px;
+	display:block;
+	margin-bottom: 160px
+}
+
+.post_partial_image{
+	height:100%;
+	width:100%;
+}
+
 .card-block{
 	-webkit-box-shadow: 0 7px 6px -6px #777;
 	 -moz-box-shadow: 0 7px 6px -6px #777;
@@ -14,6 +30,8 @@
 		overflow: hidden;
 		white-space: nowrap;
 		width: 100%;
+		border:1px solid lightgray;
+		background-color: white;
 }
 
 .card-block{

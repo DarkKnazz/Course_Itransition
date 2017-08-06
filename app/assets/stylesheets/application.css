@@ -29,6 +29,10 @@ table{
         box-shadow: 0 7px 6px -6px #777;
 }
 
+.align_class{
+  text-align: center;
+}
+
  .body_light{
  	background-color: darkgray;
  	transition:all 0.6s;
@@ -89,12 +93,44 @@ table{
 }
 
 .avatar_login{
+  width: 40px;
+  height: 40px;
 	border-radius: 50%;
 	transition: box-shadow 0.6s;
 }
 
+.menu{
+  color:#400627;
+}
+
+.menu_nickname{
+  color:#400627;
+  border-bottom: 2px solid #400627;
+}
+
 .avatar_login:hover{
 	box-shadow: 1px 1px 4px white;
+}
+
+.login_modal_body{
+  text-align: left;
+  padding: 1%;
+}
+
+.modal_category{
+  text-align: left;
+  padding-top: 0%;
+  width: 300px;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+.modal_category_row{
+  padding-left: 15%
+}
+
+.modal_category_button{
+  width: 70%
 }
 
 .dropdown-menu{

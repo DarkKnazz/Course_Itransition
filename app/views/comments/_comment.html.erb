@@ -1,9 +1,9 @@
 <div class="comment row">
-  <div class="col-lg-2" style="text-align:center;">
+  <div class="col-lg-2 comments_image">
     <img src=<%= comment.user.image%> width="60" height="60" style="border-radius: 10px;">
   </div>
   <div class="col-lg-10">
-    <strong style="font-size: 16px;"><%= comment.user.nickname%></strong><br>
+    <strong class = "comments_nickname"><%= comment.user.nickname%></strong><br>
     <%= comment.content %>
   </div>
 </div>

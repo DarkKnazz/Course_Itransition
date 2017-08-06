@@ -1,22 +1,30 @@
-#slider_1{
-  background-image: url("http://helenebrunet.com/wp-content/uploads/2014/04/Streets-Night-City-Lights.jpg");
+.slider_main{
+  min-width: 100%;
+  height:84vh;
+}
+
+.slider_carousel{
+  min-width: 100%;
+  min-height: 100%
+}
+
+.slider_item{
+  width: 100%;
+  height:84vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+#slider_1{
+  background-image: url("http://helenebrunet.com/wp-content/uploads/2014/04/Streets-Night-City-Lights.jpg");
 }
 
 #slider_2{
   background-image: url("http://cdn.wallpapersafari.com/95/76/FYXMsE.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #slider_3{
   background-image: url("http://s1.picswalls.com/wallpapers/2014/08/08/scotland-image_020713933_172.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .main_page_content {
@@ -25,6 +33,7 @@
 }
 
 .main_page_row {
+  margin-top: 2%;
   padding-left: 10%;
   padding-right: 10%;
 }
@@ -46,7 +55,7 @@
 }
 
 .main_page_tag_cloud{
-    background-color: white;
+  background-color: white;
   padding: 1%;
   padding-left: 2%;
   padding-right: 2%;
@@ -68,7 +77,8 @@
   padding-top: 4%;
 }
 
-.btn-outline-danger{
+.tag_cloud_item{
   margin-right: 5%;
   white-space: normal;
+  margin-bottom: 2%;
 }
