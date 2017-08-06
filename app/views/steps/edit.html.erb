@@ -24,5 +24,38 @@
   </div>
 </div>
 <ol id="main_block" class="drag_list">
+  <% if @step.content != '' %>
+    <% @step.content.split("%block%").each_with_index do |item, index| %>
+      <% if item.include? "%text%" %>
+        <li class='ui-sortable-handle' id="<%= index+1000 %>">
+          <div class='row block text'>
+            <div class="block_text_field">Text</div>
+            <textarea class="form-control block_text_area" rows="3"><%= item.split("%text% >")[1].split("</p>")[0].html_safe %></textarea>
+            <button id="<%= index+1000 %>_button" class="btn btn-danger" onclick="delete_function(id)">Destroy</button>
+          </div>
+        </li>
+      <% end %>
+      <% if item.include? "%image%" %>
+        <li class='ui-sortable-handle' id="<%= index+1000 %>">
+          <div class='row block image'>
+            <div class="block_text_field">Image</div>
+            <div class='block_image'>
+              <img src=<%= item.split("src=")[1].split(' class')[0].html_safe %>>
+            </div>
+            <button id="<%= index+1000 %>_button" class="btn btn-danger" onclick="delete_function(id)">Destroy</button>
+          </div>
+        </li>
+      <% end %>
+      <% if item.include? "%video%" %>
+        <li class='ui-sortable-handle' id="<%= index+1000 %>">
+          <div class='row block video'>
+            <div class="block_text_field">Video</div>
+            <input type="text" placeholder="Your link" class="form-control block_text_area" value="https://www.youtube.com/watch?v=<%= item.split('embed/')[1].split("' frameborder")[0] %>">
+            <button id="<%= index+1000 %>_button" class="btn btn-danger" onclick="delete_function(id)">Destroy</button>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  <% end %>
 </ol>
 <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>

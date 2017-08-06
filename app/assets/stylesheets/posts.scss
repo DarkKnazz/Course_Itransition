@@ -114,25 +114,14 @@ tbody.example tr.placeholder:before {
   /** Define arrowhead **/
 }
 
-.show_text{
-	width: 90%;
+.show_block{
+	min-width: 100%;
 	padding-left: 2%;
 	padding-right: 2%;
 	padding-top: 2%;
 	padding-bottom: 2%;
 	word-wrap:break-word;
 	font-size: 20px;
-}
-
-.show_video{
-	height: 350px;
-	padding-top: 2%;
-	padding-bottom: 2%;
-}
-
-.show_image{
-	padding-top: 2%;
-	padding-bottom: 2%;
 }
 
 .show_inner_image{

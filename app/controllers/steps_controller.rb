@@ -4,8 +4,6 @@ class StepsController < ApplicationController
   respond_to :js, :json, :html
   # GET /steps/1/edit
   def edit
-    @step.content = ""
-    @step.save
   end
 
   # POST /steps
