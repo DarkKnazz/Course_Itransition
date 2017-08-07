@@ -3,24 +3,22 @@
     <div class="col-lg-6">
       <%= @post.name %>
     </div>
-    <div class="col-lg-3" style="text-align: right">
+    <div class="col-lg-3 posts_show_header_buttons">
       <% if current_user %>
         <%= rating_for @post, "original_score" %>
       <% end %>
     </div>
-    <div class="col-lg-3" style="text-align: right">
+    <div class="col-lg-3 posts_show_header_buttons">
       <% if (current_user && (@post.user_id == current_user.id || current_user.isAdmin)) %>
         <%= link_to t('posts.show.links.edit'), edit_post_path(@post.id), class: "btn btn-success" %>
       <% end %>
     </div>
   </div>
-
   <div class="posts_show_tags">
     <% @post.tags.each do |tag| %>
       <%= link_to tag, tag_path(tag.name), :class => "badge badge-pill badge-danger tags" %>
     <% end %>
   </div>
-
   <div id="steps_list_show">
     <%= render 'steps_List_Show' %>
   </div>

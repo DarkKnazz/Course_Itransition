@@ -1,15 +1,15 @@
-  <% @steps.each do |step| %>
-    <strong class="posts_show_step_header"><%= step.name %></strong>
-    <% step.content.split("%block%").each do |item| %>
-      <div class='row show_block'>
-        <div class='col-lg-12'>
-          <%= item.html_safe %>
-        </div>
+<% @steps.each do |step| %>
+  <strong class="posts_show_step_header"><%= step.name %></strong>
+  <% step.content.split("%block%").each do |item| %>
+    <div class='row show_block'>
+      <div class='col-lg-12'>
+        <%= item.html_safe %>
       </div>
-    <% end %>
+    </div>
   <% end %>
+<% end %>
 
-<div class="row" style="margin-top: 2%;">
+<div class="row posts_show_row_paginate">
   <div class="col-lg-4"></div>
   <div class="col-lg-4">
     <%= will_paginate @steps, :page_links => false %>

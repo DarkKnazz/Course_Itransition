@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row post_edit_block">
     <div class="col-lg-4 edit_post_column">
-      <div style="text-align:center;"><%= t('posts.edit.header') %></div>
+      <div class="comments_image"><%= t('posts.edit.header') %></div>
       <%= form_for(@post) do |f| %>
         <div class="input-group">
           <span class="input-group-addon"><%= t('posts.edit.name') %></span>
@@ -10,8 +10,7 @@
         <button type="submit" class="btn btn-facebook edit_post_button"><%= t('posts.edit.update') %></button>
         <%= button_to t('posts.edit.buttons.destroy'), post_path(@post.id), method: :delete , :style =>"margin-bottom: 20%", :class => "btn btn-danger edit_post_button", data: { confirm: "Are you sure?"} %>
       <% end %>
-
-      <div style="text-align:center;"><%= t('posts.edit.form.create') %></div>
+      <div class="comments_image"><%= t('posts.edit.form.create') %></div>
       <%= form_for [@post, @step] do |f| %>
         <div class="field" style = "display:none">
           <%= f.label :post_id %>
@@ -21,33 +20,33 @@
           <span class="input-group-addon"><%= t('posts.edit.form.step') %></span>
           <%= f.text_field :name, :class => "form-control" %>
         </div>
-        <button type="submit" class="btn btn-success" style="width:100%;margin-top:3%;"><%= t('posts.edit.form.button') %></button>
+        <button type="submit" class="btn btn-success posts_edit_form_button"><%= t('posts.edit.form.button') %></button>
       <% end %>
-      <div style="font-weight:normal; margin-top: 5%;">
+      <div class="posts_edit_button_group">
         <%= link_to t('posts.edit.form.links.switch'), post_path(@post.id) %>
         <button onclick="updateDiv()" class="btn btn-secondary"><%= t('posts.edit.buttons.refresh') %></button>
       </div>
     </div>
     <div class="col-lg-8" id="reloading">
       <div>
-        <table class="table table-striped users_index_table" style="text-align: center;background-color:white">
-        <thead>
-          <tr>
-            <th style="text-align: center">#</th>
-            <th style="text-align: center"><%= t('posts.edit.table.step') %></th>
-            <th style="text-align: center"><%= t('posts.edit.table.update') %></th>
-          </tr>
-        </thead>
-        <tbody id="steps_list">
-          <% @steps.each_with_index do |step, index| %>
-            <tr class="list_item" data-id = "<%= step.id %>" onclick="window.location.href='<%= edit_post_step_path(id: step.id, post_id: step.post.id) %>'">
-              <th scope="row" style="text-align: center"><%= index + 1 %></th>
-              <td><%= step.name %></td>
-              <td><%= step.updated_at.strftime("%d.%m.%y, %H:%M") %></td>
+        <table class="table table-striped posts_index_table" style="">
+          <thead>
+            <tr>
+              <th class="comments_image">#</th>
+              <th class="comments_image"><%= t('posts.edit.table.step') %></th>
+              <th class="comments_image"><%= t('posts.edit.table.update') %></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody id="steps_list">
+            <% @steps.each_with_index do |step, index| %>
+              <tr class="list_item" data-id = "<%= step.id %>" onclick="window.location.href='<%= edit_post_step_path(id: step.id, post_id: step.post.id) %>'">
+                <th scope="row" class="comments_image"><%= index + 1 %></th>
+                <td><%= step.name %></td>
+                <td><%= step.updated_at.strftime("%d.%m.%y, %H:%M") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

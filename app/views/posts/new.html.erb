@@ -1,36 +1,32 @@
 <div class="container-fluid posts_new_body">
   <div class="row post_new_header"><%= t('posts.new.name') %></div>
   <%= form_for(@post) do |f| %><br>
-  <div class="row">
-    <div class="input-group">
-      <span class="input-group-addon"><%= t('posts.form.name') %></span>
-      <%= f.text_field :name, :class => "form-control" %>
-    </div>
-  </div><br>
-
-<div class="row">
-  <div class="input-group">
-    <span class="input-group-addon"><%= t('posts.form.preview') %></span>
-    <%= f.text_field :preview, :class => "form-control" %>
-  </div>
-</div><br>
-
-<div class="row">
-  <div class="input-group">
-    <span class="input-group-addon"><%= t('posts.form.tags') %></span>
-    <%= f.text_field :tag_list, :class => "form-control" %>
-  </div>
-</div><br>
-
-<div class="row">
-  <div class="input-group">
-    <span class="input-group-addon"><%= t('posts.form.category') %></span>
-    <input class="awesomplete form-control" type="text" name="post[category_id]" id="post_category_id", data-list=<%= convertCategory(@categories) %>>
-  </div>
-</div><br>
-
-<div class="row" style="padding-left: 25%">
-  <button type="submit" class="btn btn-secondary" style="width: 60%"><%= t('posts.form.button') %></button>
-</div><br>
-<% end %>
+    <div class="row">
+      <div class="input-group">
+        <span class="input-group-addon"><%= t('posts.form.name') %></span>
+        <%= f.text_field :name, :class => "form-control" %>
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="input-group">
+        <span class="input-group-addon"><%= t('posts.form.preview') %></span>
+        <%= f.text_field :preview, :class => "form-control" %>
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="input-group">
+        <span class="input-group-addon"><%= t('posts.form.tags') %></span>
+        <%= f.text_field :tag_list, :class => "form-control" %>
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="input-group">
+        <span class="input-group-addon"><%= t('posts.form.category') %></span>
+        <input class="awesomplete form-control" type="text" name="post[category_id]" id="post_category_id", data-list=<%= convertCategory(@categories) %>>
+      </div>
+    </div><br>
+    <div class="row posts_new_button">
+      <button type="submit" class="btn btn-secondary" style="width: 60%"><%= t('posts.form.button') %></button>
+    </div><br>
+  <% end %>
 </div>
