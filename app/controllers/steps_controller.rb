@@ -5,19 +5,15 @@ class StepsController < ApplicationController
   respond_to :js, :json, :html
   # GET /steps/1/edit
   def edit
-    if @step.post.user_id != current_user.id && current_user.isAdmin == false
-      redirect_to root_path
-    end
+    secureEnter @step
   end
 
   # POST /steps
   # POST /steps.json
   def create
     @post = Post.find(params[:post_id])
-    if @post.user_id != current_user.id && current_user.isAdmin == false
-      redirect_to root_path
-    end
     @step = Step.new(:post=>@post)
+    secureEnter @step
     @step = Step.create(step_params)
     @step.content = ""
     respond_to do |format|
@@ -34,9 +30,7 @@ class StepsController < ApplicationController
   # DELETE /steps/1
   # DELETE /steps/1.json
   def destroy
-    if @step.post.user_id != current_user.id && current_user.isAdmin == false
-      redirect_to root_path
-    end
+    secureEnter @step
     @step.destroy
     respond_to do |format|
       format.html { redirect_to edit_post_path(@step.post.id) }
@@ -46,9 +40,7 @@ class StepsController < ApplicationController
 
   def update_step
     @step = Step.find(params[:id])
-    if @step.post.user_id != current_user.id && current_user.isAdmin == false
-      redirect_to root_path
-    end
+    secureEnter @step
     @step.content = params[:data_value]
     @step.save
   end
@@ -63,6 +55,12 @@ class StepsController < ApplicationController
 
     def set_step
       @step = Step.find(params[:id])
+    end
+
+    def secureEnter step
+      if step.post.user_id != current_user.id && current_user.isAdmin == false
+        redirect_to root_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

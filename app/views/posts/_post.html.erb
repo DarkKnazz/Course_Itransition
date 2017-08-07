@@ -4,7 +4,13 @@
         <div class="card post_partial_card" onclick="window.location.href='<%= post_path(post.id) %>'">
           <img class="card-img-top post_partial_image" src=<%= post.preview %> alt="Card image cap">
           <div class="card-block">
-            <h4 class="card-title"><%= post.name[0..20] %></h4>
+            <h4 class="card-title">
+              <% if post.name.length >=20 %>
+                <%= post.name[0..15] %>...
+              <% else %>
+                <%= post.name %>
+              <% end %>
+            </h4>
             <p class="card-text">
               <div class="badge badge-pill badge-warning tags"><%= post.category.name %></div>
             </p>

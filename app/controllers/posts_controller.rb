@@ -55,12 +55,7 @@ end
       if id_Categ == nil
         redirect_to new_post_path
       else
-        @post = current_user.posts.create(post_params)
-        @post.category_id = id_Categ.id
-        @post.save
-        current_user.count_Posts += 1
-        current_user.save
-
+        @post = createConfig @post, id_Categ
         if @post.preview == ""
           @post.preview = "http://mirgif.com/KARTINKI/kosmos/kosmos-42.jpg"
           @post.save
@@ -107,6 +102,15 @@ end
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def createConfig post, id_Categ
+      post = current_user.posts.create(post_params)
+      post.category_id = id_Categ.id
+      post.save
+      current_user.count_Posts += 1
+      current_user.save
+      post
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
