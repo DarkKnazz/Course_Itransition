@@ -1,34 +1,29 @@
 <%= form_for(@user) do |f| %>
-<div class="row">
-  <div class="input-group">
-    <span class="input-group-addon"><%= t('users.form.nickname') %></span>
-    <%= f.text_field :nickname, :class => "form-control" %>
+  <div class="row">
+    <div class="input-group">
+      <span class="input-group-addon"><%= t('users.form.nickname') %></span>
+      <%= f.text_field :nickname, :class => "form-control" %>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="input-group">
+      <span class="input-group-addon"><%= t('users.form.email') %></span>
+      <%= f.text_field :email, :class => "form-control" %>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="input-group">
+      <span class="input-group-addon"><%= t('users.form.about') %></span>
+      <%= f.text_area :about, :class => "form-control" %>
+    </div>
+  </div><br>
+  <div class="row user_form_button">
+    <button type="submit" class="btn btn-secondary" style="width: 60%"><%= t('users.form.save') %></button>
+  </div><br>
+  <div class="row user_form_button">
+    <%= link_to t('users.form.destroy'), @user, :class => "btn btn-danger", method: :delete, :style => "width: 60%", data: { confirm: 'Are you sure?' } %>
   </div>
-</div><br>
-
-<div class="row">
-  <div class="input-group">
-    <span class="input-group-addon"><%= t('users.form.email') %></span>
-    <%= f.text_field :email, :class => "form-control" %>
+  <div class="row user_form_button">
+    <%= link_to t('users.form.back'), user_path(@user.id) %>
   </div>
-</div><br>
-
-<div class="row">
-  <div class="input-group">
-    <span class="input-group-addon"><%= t('users.form.about') %></span>
-    <%= f.text_area :about, :class => "form-control" %>
-  </div>
-</div><br>
-
-<div class="row" style="padding-left: 25%">
-  <button type="submit" class="btn btn-secondary" style="width: 60%"><%= t('users.form.save') %></button>
-</div><br>
-
-<div class="row" style="padding-left: 25%">
-  <%= link_to t('users.form.destroy'), @user, :class => "btn btn-danger", method: :delete, :style => "width: 60%", data: { confirm: 'Are you sure?' } %>
-</div>
-
-<div class="row" style="padding-left: 25%">
-  <%= link_to t('users.form.back'), user_path(@user.id) %>
-</div>
 <% end %>

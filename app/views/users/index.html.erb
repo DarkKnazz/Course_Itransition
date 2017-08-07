@@ -1,24 +1,24 @@
-<div style="padding-left: 15%; padding-right:15%">
+<div class="user_edit_padding">
   <table class="table table-striped user_edit_table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th><%= t('users.index.header.avatar') %></th>
-      <th><%= t('users.index.header.username') %></th>
-      <th><%= t('users.index.header.posts') %></th>
-      <th><%= t('users.index.header.email') %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each_with_index do |user, index| %>
-      <tr onclick="window.location.href='<%= user_path(user.id) %>'">
-    	<th scope="row" style="padding-top: 2%;"><%= index + 1 %></th>
-    	<td><img src=<%= user.image %> width="50" height="50" style="border-radius: 50%"></td>
-    	<td style="padding-top: 2%"><%= user.nickname %></td>
-    	<td style="padding-top: 2%"><%= user.count_Posts %></td>
-    	<td style="padding-top: 2%"><%= user.email %></td>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th><%= t('users.index.header.avatar') %></th>
+        <th><%= t('users.index.header.username') %></th>
+        <th><%= t('users.index.header.posts') %></th>
+        <th><%= t('users.index.header.email') %></th>
       </tr>
-	<% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @users.each_with_index do |user, index| %>
+        <tr onclick="window.location.href='<%= user_path(user.id) %>'">
+      	<th scope="row" class="user_table_inner"><%= index + 1 %></th>
+      	<td><img src=<%= user.image %> width="50" height="50" style="border-radius: 50%"></td>
+      	<td class="user_table_inner"><%= user.nickname %></td>
+      	<td class="user_table_inner"><%= user.count_Posts %></td>
+      	<td class="user_table_inner"><%= user.email %></td>
+        </tr>
+  	  <% end %>
+    </tbody>
+  </table>
 </div>

@@ -25,22 +25,22 @@
 	</div>
 
 	<div>
-  	  <table class="table table-striped" style="text-align: center">
-  	  <thead>
-      <tr>
-        <th style="text-align: center">#</th>
-        <th style="text-align: center"><%= t('posts.table.name') %></th>
-        <th style="text-align: center"><%= t('posts.table.update') %></th>
-      </tr>
+		<table class="table table-striped" style="text-align: center">
+  		<thead>
+	      <tr>
+	        <th class="comments_image">#</th>
+	        <th class="comments_image"><%= t('posts.table.name') %></th>
+	        <th class="comments_image"><%= t('posts.table.update') %></th>
+	      </tr>
   	  </thead>
   	  <tbody>
   	    <% @user.posts.each_with_index do |post, index| %>
       	  <tr onclick="window.location.href='<%= post_path(post.id) %>'">
-            <th scope="row" style="text-align: center"><%= index + 1 %></th>
+            <th scope="row" class="comments_image"><%= index + 1 %></th>
     	    	<td><%= post.name %></td>
     				<td><%= post.updated_at.strftime("%d.%m.%y, %H:%M") %></td>
           </tr>
-	    <% end %>
+	    	<% end %>
   	  </tbody>
 	  </table>
 	</div>

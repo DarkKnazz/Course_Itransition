@@ -1,7 +1,6 @@
 .header_posts_show{
 	padding-top: 1%;
 	padding-bottom: 1%;
-
 	font-size: 22px;
 	font-weight: bold;
 	border-bottom: 1px solid lightgray;
@@ -24,14 +23,12 @@
 }
 
 .card-block{
-	-webkit-box-shadow: 0 7px 6px -6px #777;
-	 -moz-box-shadow: 0 7px 6px -6px #777;
-				box-shadow: 0 7px 6px -6px #777;
-		overflow: hidden;
-		white-space: nowrap;
-		width: 100%;
-		border:1px solid lightgray;
-		background-color: white;
+  box-shadow: 0 7px 6px -6px #777;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
+	border:1px solid lightgray;
+	background-color: white;
 }
 
 .card-block{
@@ -46,9 +43,7 @@
 	padding-right: 2%;
 	padding-bottom: 1%;
 	background-color: white;
-	-webkit-box-shadow: 0 7px 6px -6px #777;
-	 -moz-box-shadow: 0 7px 6px -6px #777;
-				box-shadow: 0 7px 6px -6px #777;
+  box-shadow: 0 7px 6px -6px #777;
 }
 
 .post_edit_block{
@@ -65,9 +60,7 @@
 	border: 1px solid lightgray;
 	background-color: white;
 	border-radius: 5px;
-	-webkit-box-shadow: 0 7px 6px -6px #777;
-	 -moz-box-shadow: 0 7px 6px -6px #777;
-				box-shadow: 0 7px 6px -6px #777;
+  box-shadow: 0 7px 6px -6px #777;
 }
 
 .edit_post_button{
@@ -84,9 +77,7 @@
 	background-color: white;
 	font-size: 20px;
 	font-weight: bold;
-	-webkit-box-shadow: 0 7px 6px -6px #777;
-	 -moz-box-shadow: 0 7px 6px -6px #777;
-				box-shadow: 0 7px 6px -6px #777;
+  box-shadow: 0 7px 6px -6px #777;
 }
 
 .post_new_header{
@@ -213,8 +204,10 @@ tbody.example tr.placeholder:before {
 }
 
 .posts_index_table{
+	margin-top: 3%;
 	text-align: center;
 	background-color:white;
+	box-shadow: 0 7px 6px -6px #777;
 }
 
 .posts_index_main{

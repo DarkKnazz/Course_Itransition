@@ -10,32 +10,32 @@
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane fade active show" id="profile">
     <div class="container-fluid user_edit_tab">
-	  <div class="row header_edit">
-		<%= t('users.edit.editing') %> <%= @user.nickname %>
-	  </div>
-	  <%= render 'form', user: @user %>
+  	  <div class="row header_edit">
+  		  <%= t('users.edit.editing') %> <%= @user.nickname %>
+  	  </div>
+  	  <%= render 'form', user: @user %>
     </div>
   </div>
   <div role="tabpanel" class="tab-pane fade" id="buzz">
-	<div style="padding-left: 15%; padding-right:15%">
-  	  <table class="table table-striped user_edit_table" style="text-align: center;background-color:white;">
-  	  <thead>
-      <tr>
-        <th style="text-align: center">#</th>
-        <th style="text-align: center"><%= t('posts.table.name') %></th>
-        <th style="text-align: center"><%= t('posts.table.update') %></th>
-      </tr>
-  	  </thead>
-  	  <tbody>
-  	    <% @user.posts.each_with_index do |post, index| %>
-      	  <tr onclick="window.location.href='<%= post_path(post.id) %>'">
-            <th scope="row" style="text-align: center"><%= index + 1 %></th>
-    	      <td><%= post.name %></td>
-    		    <td><%= post.updated_at.strftime("%d.%m.%y, %H:%M") %></td>
+  	<div style="padding-left: 15%; padding-right:15%">
+      <table class="table table-striped posts_index_table">
+    	  <thead>
+          <tr>
+            <th style="text-align: center">#</th>
+            <th style="text-align: center"><%= t('posts.table.name') %></th>
+            <th style="text-align: center"><%= t('posts.table.update') %></th>
           </tr>
-	    <% end %>
-  	  </tbody>
-	  </table>
-	</div>
+    	  </thead>
+    	  <tbody>
+    	    <% @user.posts.each_with_index do |post, index| %>
+        	  <tr onclick="window.location.href='<%= post_path(post.id) %>'">
+              <th scope="row comments_image"><%= index + 1 %></th>
+      	      <td><%= post.name %></td>
+      		    <td><%= post.updated_at.strftime("%d.%m.%y, %H:%M") %></td>
+            </tr>
+  	      <% end %>
+    	  </tbody>
+  	  </table>
+  	</div>
   </div>
 </div>
